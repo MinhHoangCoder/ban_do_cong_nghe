@@ -6,8 +6,6 @@ package view;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import view.AnhBia2JPanel;
-import view.AnhBiaJPanel;
 
 /**
  *
@@ -23,9 +21,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         switch (id) {
             case 1:
                 showPanel(new AnhBiaJPanel());
-            case 7:
-                showPanel(new QuanLyDatBanJPanel());
-                break;
         }
     }
 
@@ -34,7 +29,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain.add(panel);
         pnlMain.validate();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,10 +43,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         btnProduct = new javax.swing.JButton();
         btnCustomer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnQuanLyBan = new javax.swing.JButton();
-        btnQuanLyDichVu = new javax.swing.JButton();
-        btnQuanLyKhachHang = new javax.swing.JButton();
-        btnQuanLyDatBan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,34 +65,6 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Home Frame");
 
-        btnQuanLyBan.setText("Quản lý bàn");
-        btnQuanLyBan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyBanActionPerformed(evt);
-            }
-        });
-
-        btnQuanLyDichVu.setText("Quản lý dich vụ");
-        btnQuanLyDichVu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyDichVuActionPerformed(evt);
-            }
-        });
-
-        btnQuanLyKhachHang.setText("Quản lý khách hàng");
-        btnQuanLyKhachHang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyKhachHangActionPerformed(evt);
-            }
-        });
-
-        btnQuanLyDatBan.setText("Quản lý đặt bàn");
-        btnQuanLyDatBan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyDatBanActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,11 +74,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQuanLyBan, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(btnQuanLyDichVu, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(btnQuanLyKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(btnQuanLyDatBan, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                    .addComponent(btnCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE))
         );
@@ -130,15 +88,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 .addComponent(btnProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCustomer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQuanLyBan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQuanLyDichVu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQuanLyKhachHang)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQuanLyDatBan)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
 
         pnlMain.getAccessibleContext().setAccessibleName("");
@@ -155,26 +105,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         showPanel(new CustomerPanel());
     }//GEN-LAST:event_btnCustomerActionPerformed
-
-    private void btnQuanLyBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyBanActionPerformed
-        // TODO add your handling code here:'
-        showPanel(new QuanLyBanJPanel());
-    }//GEN-LAST:event_btnQuanLyBanActionPerformed
-
-    private void btnQuanLyDichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyDichVuActionPerformed
-        // TODO add your handling code here:
-        showPanel(new DichVuJPanel());
-    }//GEN-LAST:event_btnQuanLyDichVuActionPerformed
-
-    private void btnQuanLyKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyKhachHangActionPerformed
-        // TODO add your handling code here:
-        showPanel(new QuanLyKhanhHangJPanel());
-    }//GEN-LAST:event_btnQuanLyKhachHangActionPerformed
-
-    private void btnQuanLyDatBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyDatBanActionPerformed
-        // TODO add your handling code here:
-        showPanel(new QuanLyDatBanJPanel());
-    }//GEN-LAST:event_btnQuanLyDatBanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,10 +145,6 @@ public class HomeJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomer;
     private javax.swing.JButton btnProduct;
-    private javax.swing.JButton btnQuanLyBan;
-    private javax.swing.JButton btnQuanLyDatBan;
-    private javax.swing.JButton btnQuanLyDichVu;
-    private javax.swing.JButton btnQuanLyKhachHang;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlMain;
     // End of variables declaration//GEN-END:variables
