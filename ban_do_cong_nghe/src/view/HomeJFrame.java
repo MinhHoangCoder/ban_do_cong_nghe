@@ -18,10 +18,7 @@ public class HomeJFrame extends javax.swing.JFrame {
      */
     public HomeJFrame(int id) {
         initComponents();
-        switch (id) {
-            case 1:
-                showPanel(new AnhBiaJPanel());
-        }
+        showPanel(new ProductJPanel());
     }
 
     private void showPanel(JPanel panel) {
