@@ -13,7 +13,7 @@ import java.sql.*;
 public class ConnectDB {
     public static Connection con = null;
     public static Connection getConnect() {
-        String strDbUrl = "jdbc:sqlserver://localhost:1433; databaseName=OnTapJava2;user=sa;password=1234;"
+        String strDbUrl = "jdbc:sqlserver://localhost:1433; databaseName=QLBanDoCongNghe1;user=sa;password=1234;"
                 + "encrypt=true;trustServerCertificate=true";
         try {
             con = DriverManager.getConnection(strDbUrl);
