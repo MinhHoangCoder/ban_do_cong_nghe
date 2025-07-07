@@ -67,12 +67,22 @@ public class HomeJFrame extends javax.swing.JFrame {
         jLabel1.setText("Home Frame");
 
         btnQLSP.setText("Quản Lý Sản Phẩm");
+        btnQLSP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLSPActionPerformed(evt);
+            }
+        });
 
         btnQLTH.setText("Quản Lý Thương Hiệu");
 
         btnQLDM.setText("Quản Lý Danh Mục");
 
         btnQLNV.setText("Quản Lý Nhân Viên");
+        btnQLNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLNVActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,6 +138,16 @@ public class HomeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         showPanel(new QuanLyHoaDonJPanel());
     }//GEN-LAST:event_btnQLHDActionPerformed
+
+    private void btnQLSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLSPActionPerformed
+        // TODO add your handling code here:
+        showPanel(new QuanLySanPhamJPanel());
+    }//GEN-LAST:event_btnQLSPActionPerformed
+
+    private void btnQLNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLNVActionPerformed
+        // TODO add your handling code here:
+        showPanel(new QuanLyNhanVienJPanel());
+    }//GEN-LAST:event_btnQLNVActionPerformed
 
     /**
      * @param args the command line arguments
