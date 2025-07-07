@@ -6,6 +6,7 @@ package view;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,9 +19,11 @@ public class HomeJFrame extends javax.swing.JFrame {
      */
     public HomeJFrame(int id) {
         initComponents();
+        setLocationRelativeTo(null);
         switch (id) {
             case 1:
                 showPanel(new AnhBiaJPanel());
+                break;
             case 2:
                 showPanel(new QuanLyHoaDonJPanel());
                 break;
@@ -32,7 +35,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 break;
             case 5:
                 showPanel(new QuanLyNhanVienJPanel());
-                break;    
+                break;
         }
     }
 
@@ -91,6 +94,11 @@ public class HomeJFrame extends javax.swing.JFrame {
         btnQLTH.setText("Quản Lý Thương Hiệu");
 
         btnQLDM.setText("Quản Lý Danh Mục");
+        btnQLDM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLDMActionPerformed(evt);
+            }
+        });
 
         btnQLNV.setText("Quản Lý Nhân Viên");
         btnQLNV.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +171,16 @@ public class HomeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         showPanel(new QuanLyNhanVienJPanel());
     }//GEN-LAST:event_btnQLNVActionPerformed
+
+    private void btnQLDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLDMActionPerformed
+        // TODO add your handling code here:
+        // Mở JFrame quản lý danh mục
+        QuanLyDanhMucJFrame danhMucFrame = new QuanLyDanhMucJFrame();
+        danhMucFrame.setVisible(true);
+
+        // Ẩn JFrame hiện tại (HomeJFrame)
+        this.setVisible(false);
+    }//GEN-LAST:event_btnQLDMActionPerformed
 
     /**
      * @param args the command line arguments
