@@ -8,12 +8,12 @@ package view;
  *
  * @author thanh
  */
-public class CustomerPanel extends javax.swing.JPanel {
+public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ProductJPanel
      */
-    public CustomerPanel() {
+    public QuanLyHoaDonJPanel() {
         initComponents();
     }
 

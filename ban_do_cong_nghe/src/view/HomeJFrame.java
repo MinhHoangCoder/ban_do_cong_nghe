@@ -18,7 +18,7 @@ public class HomeJFrame extends javax.swing.JFrame {
      */
     public HomeJFrame(int id) {
         initComponents();
-        showPanel(new ProductJPanel());
+        showPanel(new QuanLyKhachHangJPanel());
     }
 
     private void showPanel(JPanel panel) {
@@ -37,30 +37,42 @@ public class HomeJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlMain = new javax.swing.JPanel();
-        btnProduct = new javax.swing.JButton();
-        btnCustomer = new javax.swing.JButton();
+        btnQLKH = new javax.swing.JButton();
+        btnQLHD = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnQLSP = new javax.swing.JButton();
+        btnQLTH = new javax.swing.JButton();
+        btnQLDM = new javax.swing.JButton();
+        btnQLNV = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
         pnlMain.setLayout(new java.awt.BorderLayout());
 
-        btnProduct.setText("Product");
-        btnProduct.addActionListener(new java.awt.event.ActionListener() {
+        btnQLKH.setText("Quản Lý Khách Hàng");
+        btnQLKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductActionPerformed(evt);
+                btnQLKHActionPerformed(evt);
             }
         });
 
-        btnCustomer.setText("Customer");
-        btnCustomer.addActionListener(new java.awt.event.ActionListener() {
+        btnQLHD.setText("Quản Lý Hóa Đơn");
+        btnQLHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomerActionPerformed(evt);
+                btnQLHDActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Home Frame");
+
+        btnQLSP.setText("Quản Lý Sản Phẩm");
+
+        btnQLTH.setText("Quản Lý Thương Hiệu");
+
+        btnQLDM.setText("Quản Lý Danh Mục");
+
+        btnQLNV.setText("Quản Lý Nhân Viên");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,10 +80,16 @@ public class HomeJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnQLKH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLHD, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(btnQLSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLTH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLDM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnQLNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE))
         );
@@ -82,10 +100,18 @@ public class HomeJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(154, 154, 154)
-                .addComponent(btnProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnQLKH, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCustomer)
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addComponent(btnQLHD)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnQLSP)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnQLTH)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnQLDM)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnQLNV)
+                .addContainerGap(206, Short.MAX_VALUE))
         );
 
         pnlMain.getAccessibleContext().setAccessibleName("");
@@ -93,15 +119,15 @@ public class HomeJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
+    private void btnQLKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLKHActionPerformed
         // TODO add your handling code here:
-        showPanel(new ProductJPanel());
-    }//GEN-LAST:event_btnProductActionPerformed
+        showPanel(new QuanLyKhachHangJPanel());
+    }//GEN-LAST:event_btnQLKHActionPerformed
 
-    private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
+    private void btnQLHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLHDActionPerformed
         // TODO add your handling code here:
-        showPanel(new CustomerPanel());
-    }//GEN-LAST:event_btnCustomerActionPerformed
+        showPanel(new QuanLyHoaDonJPanel());
+    }//GEN-LAST:event_btnQLHDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,8 +166,12 @@ public class HomeJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCustomer;
-    private javax.swing.JButton btnProduct;
+    private javax.swing.JButton btnQLDM;
+    private javax.swing.JButton btnQLHD;
+    private javax.swing.JButton btnQLKH;
+    private javax.swing.JButton btnQLNV;
+    private javax.swing.JButton btnQLSP;
+    private javax.swing.JButton btnQLTH;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlMain;
     // End of variables declaration//GEN-END:variables

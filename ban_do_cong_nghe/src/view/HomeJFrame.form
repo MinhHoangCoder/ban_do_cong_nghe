@@ -25,10 +25,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabel1" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                  <Component id="btnProduct" max="32767" attributes="0"/>
-                  <Component id="btnCustomer" pref="195" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnQLKH" max="32767" attributes="0"/>
+                  <Component id="btnQLHD" pref="195" max="32767" attributes="0"/>
+                  <Component id="btnQLSP" max="32767" attributes="0"/>
+                  <Component id="btnQLTH" max="32767" attributes="0"/>
+                  <Component id="btnQLDM" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" pref="176" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="btnQLNV" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlMain" pref="593" max="32767" attributes="0"/>
@@ -42,10 +49,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-              <Component id="btnProduct" min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="btnQLKH" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnCustomer" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="362" max="32767" attributes="0"/>
+              <Component id="btnQLHD" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnQLSP" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnQLTH" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnQLDM" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnQLNV" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="206" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,25 +82,45 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
     </Container>
-    <Component class="javax.swing.JButton" name="btnProduct">
+    <Component class="javax.swing.JButton" name="btnQLKH">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Product"/>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Kh&#xe1;ch H&#xe0;ng"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLKHActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCustomer">
+    <Component class="javax.swing.JButton" name="btnQLHD">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Customer"/>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; H&#xf3;a &#x110;&#x1a1;n"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomerActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLHDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Home Frame"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnQLSP">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; S&#x1ea3;n Ph&#x1ea9;m"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnQLTH">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Th&#x1b0;&#x1a1;ng Hi&#x1ec7;u"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnQLDM">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Danh M&#x1ee5;c"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnQLNV">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Nh&#xe2;n Vi&#xea;n"/>
       </Properties>
     </Component>
   </SubComponents>
