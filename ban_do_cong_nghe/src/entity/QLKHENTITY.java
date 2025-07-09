@@ -23,6 +23,14 @@ public class QLKHENTITY {
         this.diaChi = diaChi;
     }
 
+    public QLKHENTITY(String tenKH, String soDienThoai, String email, String diaChi) {
+        this.tenKH = tenKH;
+        this.soDienThoai = soDienThoai;
+        this.email = email;
+        this.diaChi = diaChi;
+    }
+    
+
     public int getMaKh() {
         return maKh;
     }
