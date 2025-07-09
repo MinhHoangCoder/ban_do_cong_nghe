@@ -25,20 +25,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnQLKH" max="32767" attributes="0"/>
-                  <Component id="btnQLHD" pref="195" max="32767" attributes="0"/>
-                  <Component id="btnQLSP" max="32767" attributes="0"/>
-                  <Component id="btnQLTH" max="32767" attributes="0"/>
-                  <Component id="btnQLDM" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="176" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btnQLDM" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnQLTH" alignment="0" pref="200" max="32767" attributes="0"/>
+                  <Component id="btnQLSP" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnQLHD" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                  <Component id="btnQLKH" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnQLNV" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pnlMain" pref="593" max="32767" attributes="0"/>
+              <Component id="pnlMain" pref="1000" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,7 +57,7 @@
               <Component id="btnQLDM" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnQLNV" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="206" max="32767" attributes="0"/>
+              <EmptySpace pref="286" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
