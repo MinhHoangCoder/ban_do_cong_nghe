@@ -4,17 +4,52 @@
  */
 package view;
 
+import dao.QLKHDAO;
+import entity.QLKHENTITY;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author thanh
  */
 public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
+    QLKHDAO khdao = new QLKHDAO();
+
     /**
      * Creates new form ProductJPanel
      */
     public QuanLyKhachHangJPanel() {
         initComponents();
+        fillTable();
+    }
+
+    public void fillTable() {
+        DefaultTableModel model = (DefaultTableModel) tblKhachHang.getModel();
+        model.setRowCount(0);
+        for (QLKHENTITY kh : khdao.getAllKH()) {
+            Object data[] = {kh.getMaKh(), kh.getTenKH(), kh.getSoDienThoai(), kh.getEmail(), kh.getDiaChi()};
+            model.addRow(data);
+        }
+        tblKhachHang.setModel(model);
+    }
+
+    public QLKHENTITY getKH() {
+        int maKH = Integer.parseInt(txtMaKH.getText());
+        String tenKH = txtTenKH.getText();
+        String sdt = txtSDT.getText();
+        String email = txtEmail.getText();
+        String diaChi = txtDiaChi.getText();
+        return new QLKHENTITY(maKH, tenKH, sdt, email, diaChi);
+    }
+
+    public void setKH(QLKHENTITY kh) {
+        txtMaKH.setText(String.valueOf(kh.getMaKh()));
+        txtTenKH.setText(kh.getTenKH());
+        txtSDT.setText(kh.getSoDienThoai());
+        txtEmail.setText(kh.getEmail());
+        txtDiaChi.setText(kh.getDiaChi());
     }
 
     /**
@@ -36,8 +71,8 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
         txtTenKH = new javax.swing.JTextField();
         txtMaKH = new javax.swing.JTextField();
         txtSDT = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtDiaChi = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnThem = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
@@ -54,6 +89,11 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
                 "Mã Khách Hàng", "Tên Khách Hàng", "Số Điện Thoại", "Email", "Địa Chỉ"
             }
         ));
+        tblKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblKhachHangMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblKhachHang);
 
         jLabel2.setText("Tên Khách Hàng");
@@ -66,26 +106,29 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Số Điện Thoại");
 
-        txtMaKH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaKHActionPerformed(evt);
-            }
-        });
-
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("THÔNG TIN KHÁCH HÀNG");
 
         btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
         btnSua.setText("Sửa");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,11 +159,11 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(343, 343, 343)
                                 .addComponent(jLabel1)))
@@ -144,13 +187,13 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(txtTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtMaKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -165,13 +208,49 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaKHActionPerformed
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaKHActionPerformed
+        int confirm = JOptionPane.showConfirmDialog(btnThem, "Ban co chac muon them khong");
+        if (confirm == JOptionPane.YES_OPTION) {
+            this.khdao.insertKH(this.getKH());
+            fillTable();
+            JOptionPane.showMessageDialog(btnThem, "Them thanh cong");
+        }
+    }//GEN-LAST:event_btnThemActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+        int confirm = JOptionPane.showConfirmDialog(btnThem, "Ban co chac muon sua khong");
+        if (confirm == JOptionPane.YES_OPTION) {
+            this.khdao.updateKH(this.getKH());
+            fillTable();
+            JOptionPane.showMessageDialog(btnThem, "Sua thanh cong");
+        }
+    }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(btnThem, "Ban co chac muon xoa khong");
+        if (confirm == JOptionPane.YES_OPTION) {
+            int row = tblKhachHang.getSelectedRow();
+            int maKH = (int) tblKhachHang.getValueAt(row, 0);
+            this.khdao.deleteKH(maKH);
+            fillTable();
+            JOptionPane.showMessageDialog(btnThem, "Xoa thanh cong");
+        }
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void tblKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKhachHangMouseClicked
+        // TODO add your handling code here:
+        int row = tblKhachHang.getSelectedRow();
+        String maKH = String.valueOf(tblKhachHang.getValueAt(row, 0));
+        String tenKH = String.valueOf(tblKhachHang.getValueAt(row, 1));
+        String sdt = String.valueOf(tblKhachHang.getValueAt(row, 2));
+        String email = String.valueOf(tblKhachHang.getValueAt(row, 3));
+        String diaChi = String.valueOf(tblKhachHang.getValueAt(row, 4));
+        QLKHENTITY kh = new QLKHENTITY(Integer.parseInt(maKH), tenKH, sdt, email, diaChi);
+        this.setKH(kh);
+    }//GEN-LAST:event_tblKhachHangMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -185,9 +264,9 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tblKhachHang;
+    private javax.swing.JTextField txtDiaChi;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMaKH;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtTenKH;
