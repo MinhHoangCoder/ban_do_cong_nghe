@@ -37,14 +37,14 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabel1)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(660, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(278, 278, 278)
                 .addComponent(jLabel1)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
