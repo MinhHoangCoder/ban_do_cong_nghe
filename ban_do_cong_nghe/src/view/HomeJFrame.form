@@ -112,6 +112,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Th&#x1b0;&#x1a1;ng Hi&#x1ec7;u"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLTHActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnQLDM">
       <Properties>
