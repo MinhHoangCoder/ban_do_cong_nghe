@@ -319,20 +319,17 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         txtEMAIL.setText(String.valueOf(tblQLNV.getValueAt(sr, 4).toString()));
         txtDIACHI.setText(String.valueOf(tblQLNV.getValueAt(sr, 5).toString()));
         txtMATKHAU.setText(String.valueOf(tblQLNV.getValueAt(sr, 6).toString()));
-        cbQUYEN.setSelectedItem(tblQLNV.getValueAt(sr, 7));
-        System.out.println(tblQLNV.getValueAt(sr, 7));
+        cbQUYEN.setSelectedItem(tblQLNV.getValueAt(sr, 7).toString());
     }//GEN-LAST:event_tblQLNVMouseClicked
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
         // TODO add your handling code here:
-        int maNV = Integer.parseInt(txtMANV.getText());
-        String tenNV = txtTENNV.getText();
-        String ngaySinh = txtNGAYSINH.getText();
-        String sdt = txtSDT.getText();
-        String email = txtEMAIL.getText();
-        String diaChi = txtDIACHI.getText();
-        String matKhau = txtMATKHAU.getText();
-        System.out.println(cbQUYEN.getSelectedItem());
+        int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn sửa nhân viên này không ?");
+        if(confirm == JOptionPane.YES_OPTION){
+            nvdao.updateNV(this.getNV());
+            fillTable();
+            JOptionPane.showMessageDialog(btnTHEM, "Sửa thành công!");
+        }
     }//GEN-LAST:event_btnSUAActionPerformed
 
     private void btnXOAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOAActionPerformed

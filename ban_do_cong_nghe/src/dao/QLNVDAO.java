@@ -34,9 +34,13 @@ public class QLNVDAO {
                 if (sqlDate != null) {
                     ngaySinh = sqlDate.toLocalDate();
                 }
+                
+                int maQ = rs.getInt("quyen");
+                String tenQuyen = convertQuyenIntToString(maQ);
+                
                 QLNVENTITY nv = new QLNVENTITY(
                         rs.getInt("maNV"), 
-                        rs.getString("quyen"), 
+                        tenQuyen, 
                         rs.getString("tenNV"), 
                         rs.getString("soDienThoai"), 
                         rs.getString("email"), 
@@ -86,6 +90,23 @@ public class QLNVDAO {
             e.printStackTrace();
         }
         return maQuyen;
+    }
+    
+    public String convertQuyenIntToString(int maQuyen) {
+        String tenQuyen = "";
+        try {
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT tenQ FROM quyen WHERE maQ = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, maQuyen);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                tenQuyen = rs.getString("tenQ");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tenQuyen;
     }
     
     public void updateNV(QLNVENTITY nv){
