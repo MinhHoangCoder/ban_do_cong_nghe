@@ -41,7 +41,7 @@ public class QLKHDAO {
             statement.setString(2, kh.getSoDienThoai());
             statement.setString(3, kh.getEmail());
             statement.setString(4, kh.getDiaChi());
-            statement.execute();
+            statement.executeUpdate();
         } catch (Exception e) {
             System.out.println("Loi insert kh" + e.getMessage());
         }
