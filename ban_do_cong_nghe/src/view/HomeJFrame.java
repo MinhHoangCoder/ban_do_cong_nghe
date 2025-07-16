@@ -57,24 +57,28 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         btnQLKH = new javax.swing.JButton();
         btnQLHD = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnQLSP = new javax.swing.JButton();
         btnQLTH = new javax.swing.JButton();
         btnQLDM = new javax.swing.JButton();
         btnQLNV = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
         pnlMain.setLayout(new java.awt.BorderLayout());
 
+        btnQLKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/User.png"))); // NOI18N
         btnQLKH.setText("Quản Lý Khách Hàng");
+        btnQLKH.setMaximumSize(new java.awt.Dimension(200, 50));
+        btnQLKH.setMinimumSize(new java.awt.Dimension(200, 50));
         btnQLKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQLKHActionPerformed(evt);
             }
         });
 
+        btnQLHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Yen.png"))); // NOI18N
         btnQLHD.setText("Quản Lý Hóa Đơn");
         btnQLHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,8 +86,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Home Frame");
-
+        btnQLSP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Gear.png"))); // NOI18N
         btnQLSP.setText("Quản Lý Sản Phẩm");
         btnQLSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,8 +94,10 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnQLTH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Search.png"))); // NOI18N
         btnQLTH.setText("Quản Lý Thương Hiệu");
 
+        btnQLDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Documents.png"))); // NOI18N
         btnQLDM.setText("Quản Lý Danh Mục");
         btnQLDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,10 +105,19 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnQLNV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Handshake.png"))); // NOI18N
         btnQLNV.setText("Quản Lý Nhân Viên");
         btnQLNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQLNVActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\dattr\\Downloads\\logol.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
 
@@ -118,9 +132,9 @@ public class HomeJFrame extends javax.swing.JFrame {
                     .addComponent(btnQLTH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(btnQLSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnQLHD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnQLKH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQLNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnQLNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
         );
@@ -129,20 +143,20 @@ public class HomeJFrame extends javax.swing.JFrame {
             .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154)
-                .addComponent(btnQLKH, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQLHD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQLSP)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQLTH)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQLDM)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQLNV)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnQLKH, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnQLHD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnQLSP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnQLTH, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnQLDM, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnQLNV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pnlMain.getAccessibleContext().setAccessibleName("");
@@ -179,6 +193,11 @@ public class HomeJFrame extends javax.swing.JFrame {
         // Ẩn JFrame hiện tại (HomeJFrame)
         this.setVisible(false);
     }//GEN-LAST:event_btnQLDMActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        showPanel(new AnhBiaJPanel());
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
