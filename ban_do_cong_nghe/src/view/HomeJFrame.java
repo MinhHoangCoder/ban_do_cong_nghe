@@ -92,6 +92,11 @@ public class HomeJFrame extends javax.swing.JFrame {
         });
 
         btnQLTH.setText("Quản Lý Thương Hiệu");
+        btnQLTH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLTHActionPerformed(evt);
+            }
+        });
 
         btnQLDM.setText("Quản Lý Danh Mục");
         btnQLDM.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +184,13 @@ public class HomeJFrame extends javax.swing.JFrame {
         // Ẩn JFrame hiện tại (HomeJFrame)
         this.setVisible(false);
     }//GEN-LAST:event_btnQLDMActionPerformed
+
+    private void btnQLTHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLTHActionPerformed
+        // TODO add your handling code here:
+        QuanLyThuongHieuJFrame QLTHFrame = new QuanLyThuongHieuJFrame();
+        QLTHFrame.setLocationRelativeTo(null);
+        QLTHFrame.setVisible(true); 
+    }//GEN-LAST:event_btnQLTHActionPerformed
 
     /**
      * @param args the command line arguments
