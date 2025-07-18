@@ -96,6 +96,11 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         btnQLTH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Search.png"))); // NOI18N
         btnQLTH.setText("Quản Lý Thương Hiệu");
+        btnQLTH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLTHActionPerformed(evt);
+            }
+        });
 
         btnQLDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Documents.png"))); // NOI18N
         btnQLDM.setText("Quản Lý Danh Mục");
@@ -198,6 +203,15 @@ public class HomeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         showPanel(new AnhBiaJPanel());
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void btnQLTHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLTHActionPerformed
+        // TODO add your handling code here:
+                QuanLyThuongHieuJFrame thuongHieuFrame = new QuanLyThuongHieuJFrame();
+        thuongHieuFrame.setVisible(true);
+
+        // Ẩn JFrame hiện tại (HomeJFrame)
+        this.setVisible(false);
+    }//GEN-LAST:event_btnQLTHActionPerformed
 
     /**
      * @param args the command line arguments
