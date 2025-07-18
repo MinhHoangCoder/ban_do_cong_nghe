@@ -4,17 +4,71 @@
  */
 package view;
 
+import dao.QLTHDAO;
+import entity.QLTHENTITY;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
+import java.awt.*;
+import java.net.URL;
+
 /**
  *
  * @author MSI USER
  */
 public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
 
+    QLTHDAO thdao = new QLTHDAO();
     /**
      * Creates new form QuanLyThuongHieuJFrame
      */
     public QuanLyThuongHieuJFrame() {
         initComponents();
+        fillTB();
+    }
+    private void showLogoImage(String imagePath) {
+        if (imagePath != null && !imagePath.isEmpty()) {
+            try {
+                ImageIcon logoIcon = new ImageIcon(imagePath); // Hoặc nếu là URL
+                Image img = logoIcon.getImage();
+                Image scaledImage = img.getScaledInstance(lblLogo.getWidth(), 
+                                                          lblLogo.getHeight(),
+                                                          Image.SCALE_SMOOTH); // Resize theo JLabel
+                lblLogo.setIcon(new ImageIcon(scaledImage));
+            } catch (Exception e) {
+                e.printStackTrace();
+                lblLogo.setIcon(null);  // Nếu có lỗi, không hiển thị ảnh
+            }
+        } else {
+            lblLogo.setIcon(null);  // Không có ảnh thì không hiển thị gì
+        }
+    }
+    
+    public void fillTB(){
+        DefaultTableModel model = (DefaultTableModel) tblTHUONGHIEU.getModel();
+        model.setRowCount(0);
+        for (QLTHENTITY th : thdao.getAllTH()) {
+            Object data[] = {
+                th.getMaTH(),
+                th.getTenTH(),
+                th.getAnhTH()
+            };
+            model.addRow(data);
+        }
+        tblTHUONGHIEU.setModel(model);
+    }
+    
+    public QLTHENTITY getTH(){
+        String tenTH = txtTENTH.getText();
+        byte[] anhTH = txtANHTH.getText();
+        
+        int maNV = 0;
+        if (!txtMATH.getText().isBlank()) {
+            maNV = Integer.parseInt(txtMATH.getText());
+        }
+        
+        QLTHENTITY th = new QLTHENTITY(maNV, tenTH, anhTH);
+        return th;
     }
 
     /**
@@ -25,22 +79,235 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTHUONGHIEU = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        btnXOA = new javax.swing.JButton();
+        btnSUA = new javax.swing.JButton();
+        btnTHEM = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtTENTH = new javax.swing.JTextField();
+        txtMATH = new javax.swing.JTextField();
+        txtANHTH = new javax.swing.JTextField();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("THƯƠNG HIỆU");
+
+        tblTHUONGHIEU.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Mã Thương Hiệu", "Tên Thương Hiệu", "Logo Thương Hiệu"
+            }
+        ));
+        tblTHUONGHIEU.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTHUONGHIEUMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblTHUONGHIEU);
+
+        btnXOA.setText("Xóa");
+        btnXOA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXOAActionPerformed(evt);
+            }
+        });
+
+        btnSUA.setText("Sửa");
+        btnSUA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSUAActionPerformed(evt);
+            }
+        });
+
+        btnTHEM.setText("Thêm");
+        btnTHEM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTHEMActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel5.setText("(Chỉ được dùng link http hoặc url cho ảnh)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 93, 22, 0);
+        jPanel2.add(jLabel5, gridBagConstraints);
+
+        jLabel2.setText("Mã Thương Hiệu");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 6, 0, 0);
+        jPanel2.add(jLabel2, gridBagConstraints);
+
+        jLabel3.setText("Tên Thương Hiệu");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 6, 0, 0);
+        jPanel2.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("Ảnh Thương Hiệu");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 6, 0, 0);
+        jPanel2.add(jLabel4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 264;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 57);
+        jPanel2.add(txtTENTH, gridBagConstraints);
+
+        txtMATH.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 264;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 6, 0, 57);
+        jPanel2.add(txtMATH, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 264;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 57);
+        jPanel2.add(txtANHTH, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(419, 419, 419)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(602, 602, 602)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                                .addComponent(btnXOA)
+                                .addGap(5, 5, 5)
+                                .addComponent(btnSUA)
+                                .addGap(5, 5, 5)
+                                .addComponent(btnTHEM)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXOA)
+                    .addComponent(btnSUA)
+                    .addComponent(btnTHEM))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
+        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thêm thương hiệu này không?");
+        if(confirm == JOptionPane.YES_OPTION){
+            thdao.insertTH(this.getTH());
+            this.fillTB();
+            JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
+        }
+    }//GEN-LAST:event_btnTHEMActionPerformed
+
+    private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
+        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn sửa thương hiệu này không?");
+        if(confirm == JOptionPane.YES_OPTION){
+            thdao.updateTH(this.getTH());
+            this.fillTB();
+            JOptionPane.showMessageDialog(rootPane, "Sửa thành công!");
+        }
+    }//GEN-LAST:event_btnSUAActionPerformed
+
+    private void btnXOAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOAActionPerformed
+        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn sửa thương hiệu này không?");
+        if(confirm == JOptionPane.YES_OPTION){
+            int maTH = Integer.parseInt(txtMATH.getText());
+            thdao.deleteTH(maTH);
+            txtANHTH.setText(" ");
+            txtMATH.setText(" ");
+            txtTENTH.setText(" ");
+            this.fillTB();
+            JOptionPane.showMessageDialog(rootPane, "Sửa thành công!");
+        }
+    }//GEN-LAST:event_btnXOAActionPerformed
+
+    private void tblTHUONGHIEUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTHUONGHIEUMouseClicked
+        // TODO add your handling code here:
+        int sr = tblTHUONGHIEU.getSelectedRow();
+
+        if (sr >= 0) {
+            txtMATH.setText(tblTHUONGHIEU.getValueAt(sr, 0).toString());
+            txtTENTH.setText(tblTHUONGHIEU.getValueAt(sr, 1).toString());
+            txtANHTH.setText(tblTHUONGHIEU.getValueAt(sr, 2).toString());
+//            String imagePath = tblTHUONGHIEU.getValueAt(sr, 2).toString();
+//            showLogoImage(imagePath);
+        }
+    }//GEN-LAST:event_tblTHUONGHIEUMouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,5 +345,21 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSUA;
+    private javax.swing.JButton btnTHEM;
+    private javax.swing.JButton btnXOA;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JTable tblTHUONGHIEU;
+    private javax.swing.JTextField txtANHTH;
+    private javax.swing.JTextField txtMATH;
+    private javax.swing.JTextField txtTENTH;
     // End of variables declaration//GEN-END:variables
 }
