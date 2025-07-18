@@ -287,6 +287,9 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
         if(confirm == JOptionPane.YES_OPTION){
             int maTH = Integer.parseInt(txtMATH.getText());
             thdao.deleteTH(maTH);
+            txtANHTH.setText(" ");
+            txtMATH.setText(" ");
+            txtTENTH.setText(" ");
             this.fillTB();
             JOptionPane.showMessageDialog(rootPane, "Sửa thành công!");
         }

@@ -25,7 +25,7 @@ public class QLTHDAO {
                 QLTHENTITY th = new QLTHENTITY(
                         rs.getInt("maTH"), 
                         rs.getString("tenTH"), 
-                        rs.getString("anhTH"));
+                        rs.getBytes("anhTH"));
                 Lst.add(th);
             }
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class QLTHDAO {
                     + "VALUES (?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, th.getTenTH());
-            ps.setString(2, th.getAnhTH());
+            ps.setBytes(2, th.getAnhTH());
             ps.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class QLTHDAO {
                     + "WHERE maTH = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, th.getTenTH());
-            ps.setString(2, th.getAnhTH());
+            ps.setBytes(2, th.getAnhTH());
             ps.setInt(3, th.getMaTH());
             ps.execute();
         } catch (Exception e) {
