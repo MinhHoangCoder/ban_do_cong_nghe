@@ -25,14 +25,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="btnQLDM" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnQLTH" alignment="0" pref="200" max="32767" attributes="0"/>
-                  <Component id="btnQLSP" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnQLHD" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel1" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                  <Component id="btnQLKH" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnQLNV" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnQLTH" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnQLSP" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnQLKH" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel1" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="btnQLHD" min="-2" pref="200" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnQLDM" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btnQLNV" min="-2" pref="200" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlMain" pref="1000" max="32767" attributes="0"/>
@@ -44,20 +50,20 @@
           <Component id="pnlMain" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-              <Component id="btnQLKH" min="-2" pref="29" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnQLHD" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnQLSP" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnQLTH" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnQLDM" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnQLNV" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="286" max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <Component id="btnQLKH" min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnQLHD" min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnQLSP" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnQLTH" min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnQLDM" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnQLNV" min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace pref="114" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,6 +87,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnQLKH">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/User.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Kh&#xe1;ch H&#xe0;ng"/>
       </Properties>
       <Events>
@@ -89,6 +98,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLHD">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Cash register.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; H&#xf3;a &#x110;&#x1a1;n"/>
       </Properties>
       <Events>
@@ -97,11 +109,19 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Home Frame"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\dattr\Downloads\logol.png"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnQLSP">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Computer.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; S&#x1ea3;n Ph&#x1ea9;m"/>
       </Properties>
       <Events>
@@ -110,6 +130,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLTH">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Tick.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Th&#x1b0;&#x1a1;ng Hi&#x1ec7;u"/>
       </Properties>
       <Events>
@@ -118,6 +141,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLDM">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Bar chart.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Danh M&#x1ee5;c"/>
       </Properties>
       <Events>
@@ -126,6 +152,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLNV">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Clien list.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Nh&#xe2;n Vi&#xea;n"/>
       </Properties>
       <Events>
