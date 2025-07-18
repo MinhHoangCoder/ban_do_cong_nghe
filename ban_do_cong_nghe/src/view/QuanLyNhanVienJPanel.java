@@ -117,8 +117,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         txtMANV = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 204));
-
         jLabel1.setText("Tên Nhân Viên");
 
         jLabel2.setText("Ngày Sinh");
@@ -147,7 +145,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
 
         cbQUYEN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        tblQLNV.setBackground(new java.awt.Color(204, 204, 204));
         tblQLNV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -166,7 +163,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblQLNV);
 
-        btnTHEM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHEM.setText("Thêm");
         btnTHEM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +170,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSUA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Gear.png"))); // NOI18N
         btnSUA.setText("Sửa");
         btnSUA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +177,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnXOA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Delete.png"))); // NOI18N
         btnXOA.setText("Xóa");
         btnXOA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +184,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setText("THÔNG TIN NHÂN VIÊN");
 
         txtMANV.setEditable(false);
@@ -202,6 +196,20 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTHEM)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSUA)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnXOA))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(354, 354, 354)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(193, 193, 193)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,28 +241,14 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtEMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(360, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnTHEM)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSUA)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnXOA)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(358, 358, 358))))
+                            .addComponent(txtEMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtEMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,7 +280,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTHEM)
                     .addComponent(btnSUA)
