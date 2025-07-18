@@ -60,7 +60,7 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
     
     public QLTHENTITY getTH(){
         String tenTH = txtTENTH.getText();
-        String anhTH = txtANHTH.getText();
+        byte[] anhTH = txtANHTH.getText();
         
         int maNV = 0;
         if (!txtMATH.getText().isBlank()) {
@@ -227,14 +227,15 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(602, 602, 602)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                                 .addComponent(btnXOA)
                                 .addGap(5, 5, 5)
                                 .addComponent(btnSUA)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnTHEM)
-                                .addGap(364, 364, 364)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                                .addComponent(btnTHEM)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
