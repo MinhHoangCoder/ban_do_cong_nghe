@@ -11,15 +11,13 @@ package entity;
 public class QLTHENTITY {
     private int maTH;
     private String tenTH;
-    private byte[] anhTH;
 
     public QLTHENTITY() {
     }
 
-    public QLTHENTITY(int maTH, String tenTH, byte[] anhTH) {
+    public QLTHENTITY(int maTH, String tenTH) {
         this.maTH = maTH;
         this.tenTH = tenTH;
-        this.anhTH = anhTH;
     }
 
     public int getMaTH() {
@@ -38,13 +36,4 @@ public class QLTHENTITY {
         this.tenTH = tenTH;
     }
 
-    public byte[] getAnhTH() {
-        return anhTH;
-    }
-
-    public void setAnhTH(byte[] anhTH) {
-        this.anhTH = anhTH;
-    }
-    
-    
 }
