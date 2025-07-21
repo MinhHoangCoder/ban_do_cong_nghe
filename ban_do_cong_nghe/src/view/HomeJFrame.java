@@ -14,28 +14,34 @@ import javax.swing.JFrame;
  */
 public class HomeJFrame extends javax.swing.JFrame {
 
+    private Pages currentPage;
     /**
      * Creates new form HomeJFrame
      */
     public HomeJFrame(int id) {
         initComponents();
         setLocationRelativeTo(null);
-        switch (id) {
-            case 1:
-                showPanel(new AnhBiaJPanel());
+        currentPage = Pages.values()[id - 1];
+    }
+    
+    private void switchPage(Pages page){
+        JPanel panelToShow = null;
+        switch (page) {
+            case ANHBIA:
+                panelToShow = new AnhBiaJPanel();
                 break;
-            case 2:
-                showPanel(new QuanLyHoaDonJPanel());
+            case QLHD:
+                panelToShow = new QuanLyHoaDonJPanel();
                 break;
-            case 3:
-                showPanel(new QuanLyKhachHangJPanel());
+            case QLKH:
+                panelToShow = new QuanLyKhachHangJPanel();
                 break;
-            case 4:
-                showPanel(new QuanLySanPhamJPanel());
+            case QLNV:
+                panelToShow = new QuanLyNhanVienJPanel();
                 break;
-            case 5:
-                showPanel(new QuanLyNhanVienJPanel());
-                break;
+            case QLSP:
+                panelToShow = new QuanLySanPhamJPanel();
+                break;              
         }
     }
 
@@ -43,6 +49,7 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain.removeAll();
         pnlMain.add(panel);
         pnlMain.validate();
+        pnlMain.repaint();
     }
 
     /**
@@ -57,6 +64,7 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         btnQLKH = new javax.swing.JButton();
         btnQLHD = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         btnQLSP = new javax.swing.JButton();
         btnQLTH = new javax.swing.JButton();
         btnQLDM = new javax.swing.JButton();
@@ -67,7 +75,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
         pnlMain.setLayout(new java.awt.BorderLayout());
 
-        btnQLKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/User.png"))); // NOI18N
         btnQLKH.setText("Quản Lý Khách Hàng");
         btnQLKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +82,6 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnQLHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Cash register.png"))); // NOI18N
         btnQLHD.setText("Quản Lý Hóa Đơn");
         btnQLHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +89,12 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnQLSP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Computer.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
         btnQLSP.setText("Quản Lý Sản Phẩm");
         btnQLSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +102,6 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnQLTH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Tick.png"))); // NOI18N
         btnQLTH.setText("Quản Lý Thương Hiệu");
         btnQLTH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +109,6 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnQLDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Bar chart.png"))); // NOI18N
         btnQLDM.setText("Quản Lý Danh Mục");
         btnQLDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +116,6 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnQLNV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Clien list.png"))); // NOI18N
         btnQLNV.setText("Quản Lý Nhân Viên");
         btnQLNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,15 +130,15 @@ public class HomeJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnQLTH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addComponent(btnQLSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnQLKH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnQLHD, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btnQLDM, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnQLNV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnQLHD, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnQLKH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLDM, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnQLNV, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnQLSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLTH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
         );
@@ -138,7 +146,9 @@ public class HomeJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(201, 201, 201)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
                 .addComponent(btnQLKH, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQLHD, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,7 +160,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 .addComponent(btnQLDM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQLNV, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pnlMain.getAccessibleContext().setAccessibleName("");
@@ -180,20 +190,22 @@ public class HomeJFrame extends javax.swing.JFrame {
 
     private void btnQLDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLDMActionPerformed
         // TODO add your handling code here:
-        // Mở JFrame quản lý danh mục
-        QuanLyDanhMucJFrame danhMucFrame = new QuanLyDanhMucJFrame();
-        danhMucFrame.setVisible(true);
-
-        // Ẩn JFrame hiện tại (HomeJFrame)
-        this.setVisible(false);
+        QuanLyDanhMucJFrame QLDMFrame = new QuanLyDanhMucJFrame(this, "Home");
+        QLDMFrame.setLocationRelativeTo(null);
+        QLDMFrame.setVisible(true); 
     }//GEN-LAST:event_btnQLDMActionPerformed
 
     private void btnQLTHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLTHActionPerformed
         // TODO add your handling code here:
-//        QuanLyThuongHieuJFrame QLTHFrame = new QuanLyThuongHieuJFrame();
-//        QLTHFrame.setLocationRelativeTo(null);
-//        QLTHFrame.setVisible(true); 
+        QuanLyThuongHieuJFrame QLTHFrame = new QuanLyThuongHieuJFrame(this, "Home");
+        QLTHFrame.setLocationRelativeTo(null);
+        QLTHFrame.setVisible(true); 
     }//GEN-LAST:event_btnQLTHActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        showPanel(new AnhBiaJPanel());
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -238,6 +250,7 @@ public class HomeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnQLNV;
     private javax.swing.JButton btnQLSP;
     private javax.swing.JButton btnQLTH;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlMain;
     // End of variables declaration//GEN-END:variables
 }

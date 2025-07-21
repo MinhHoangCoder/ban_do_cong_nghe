@@ -24,11 +24,10 @@ public class QLTHDAO {
             while(rs.next()){
                 QLTHENTITY th = new QLTHENTITY(
                         rs.getInt("maTH"), 
-                        rs.getString("tenTH"), 
-                        rs.getBytes("anhTH"));
+                        rs.getString("tenTH"));
                 Lst.add(th);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return Lst;
@@ -37,14 +36,13 @@ public class QLTHDAO {
     public void insertTH(QLTHENTITY th){
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "INSERT INTO ThuongHieu"
-                    + "(tenTH, anhTH)"
-                    + "VALUES (?, ?)";
+            String sql = "INSERT INTO ThuongHieu "
+                    + "(tenTH) "
+                    + "VALUES (?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, th.getTenTH());
-            ps.setBytes(2, th.getAnhTH());
             ps.execute();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -52,16 +50,14 @@ public class QLTHDAO {
     public void updateTH(QLTHENTITY th){
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "UPDATE ThuongHieu SET"
-                    + "tenTH = ?,"
-                    + "anhTH = ?"
+            String sql = "UPDATE ThuongHieu SET "
+                    + "tenTH = ? "
                     + "WHERE maTH = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, th.getTenTH());
-            ps.setBytes(2, th.getAnhTH());
-            ps.setInt(3, th.getMaTH());
+            ps.setInt(2, th.getMaTH());
             ps.execute();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -73,7 +69,7 @@ public class QLTHDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, maTH);
             ps.execute();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

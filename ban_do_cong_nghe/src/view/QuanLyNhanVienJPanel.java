@@ -117,8 +117,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         txtMANV = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 204));
-
         jLabel1.setText("Tên Nhân Viên");
 
         jLabel2.setText("Ngày Sinh");
@@ -147,7 +145,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
 
         cbQUYEN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        tblQLNV.setBackground(new java.awt.Color(204, 204, 204));
         tblQLNV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -166,7 +163,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblQLNV);
 
-        btnTHEM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHEM.setText("Thêm");
         btnTHEM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +170,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSUA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Gear.png"))); // NOI18N
         btnSUA.setText("Sửa");
         btnSUA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +177,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnXOA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Delete.png"))); // NOI18N
         btnXOA.setText("Xóa");
         btnXOA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,9 +246,9 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtEMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,13 +280,13 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTHEM)
                     .addComponent(btnSUA)
                     .addComponent(btnXOA))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -330,11 +324,16 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn sửa nhân viên này không ?");
-        if(confirm == JOptionPane.YES_OPTION){
-            nvdao.updateNV(this.getNV());
-            fillTable();
-            JOptionPane.showMessageDialog(btnTHEM, "Sửa thành công!");
+        int sr = tblQLNV.getSelectedRow();
+        if(sr > 1){
+            int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn sửa nhân viên này không ?");
+            if(confirm == JOptionPane.YES_OPTION){
+                nvdao.updateNV(this.getNV());
+                fillTable();
+                JOptionPane.showMessageDialog(btnTHEM, "Sửa thành công!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(btnSUA, "Bạn phải chọn một dòng dữ liệu trong bảng để sửa");
         }
     }//GEN-LAST:event_btnSUAActionPerformed
 
