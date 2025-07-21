@@ -36,12 +36,11 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
     }
 
     public QLKHENTITY getKH() {
-        int maKH = Integer.parseInt(txtMaKH.getText());
         String tenKH = txtTenKH.getText();
         String sdt = txtSDT.getText();
         String email = txtEmail.getText();
         String diaChi = txtDiaChi.getText();
-        return new QLKHENTITY(maKH, tenKH, sdt, email, diaChi);
+        return new QLKHENTITY(tenKH, sdt, email, diaChi);
     }
 
     public void setKH(QLKHENTITY kh) {
