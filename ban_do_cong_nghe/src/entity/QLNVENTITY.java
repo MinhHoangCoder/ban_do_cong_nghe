@@ -10,24 +10,14 @@ import java.time.LocalDate;
  * @author MSI USER
  */
 public class QLNVENTITY {
-    private int maNV;
-    private String tenNV, soDienThoai, email, diaChi, matKhau, quyen;
+    private int maNV, quyen;
+    private String tenNV, soDienThoai, email, diaChi, matKhau;
     private LocalDate ngaySinh;
 
     public QLNVENTITY() {
     }
 
-    public QLNVENTITY(String quyen, String tenNV, String soDienThoai, String email, String diaChi, String matKhau, LocalDate ngaySinh) {
-        this.quyen = quyen;
-        this.tenNV = tenNV;
-        this.soDienThoai = soDienThoai;
-        this.email = email;
-        this.diaChi = diaChi;
-        this.matKhau = matKhau;
-        this.ngaySinh = ngaySinh;
-    }
-
-    public QLNVENTITY(int maNV, String quyen, String tenNV, String soDienThoai, String email, String diaChi, String matKhau, LocalDate ngaySinh) {
+    public QLNVENTITY(int maNV, int quyen, String tenNV, String soDienThoai, String email, String diaChi, String matKhau, LocalDate ngaySinh) {
         this.maNV = maNV;
         this.quyen = quyen;
         this.tenNV = tenNV;
@@ -46,11 +36,11 @@ public class QLNVENTITY {
         this.maNV = maNV;
     }
 
-    public String getQuyen() {
+    public int getQuyen() {
         return quyen;
     }
 
-    public void setQuyen(String quyen) {
+    public void setQuyen(int quyen) {
         this.quyen = quyen;
     }
 
@@ -101,6 +91,6 @@ public class QLNVENTITY {
     public void setNgaySinh(LocalDate ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
-    
+
     
 }

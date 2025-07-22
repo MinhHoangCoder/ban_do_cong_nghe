@@ -36,6 +36,8 @@
                   <Component id="btnQLNV" pref="200" max="32767" attributes="0"/>
                   <Component id="btnQLSP" alignment="1" max="32767" attributes="0"/>
                   <Component id="btnQLTH" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnDOIMATKHAU" pref="200" max="32767" attributes="0"/>
+                  <Component id="btnDANGXUAT" pref="200" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlMain" pref="1000" max="32767" attributes="0"/>
@@ -48,7 +50,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace pref="87" max="32767" attributes="0"/>
               <Component id="btnQLKH" min="-2" pref="49" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLHD" min="-2" pref="53" max="-2" attributes="0"/>
@@ -60,7 +62,11 @@
               <Component id="btnQLDM" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLNV" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace pref="114" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnDOIMATKHAU" min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnDANGXUAT" min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,6 +139,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLNVActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDOIMATKHAU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i M&#x1ead;t Kh&#x1ea9;u"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDOIMATKHAUActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDANGXUAT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng Xu&#x1ea5;t"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDANGXUATActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

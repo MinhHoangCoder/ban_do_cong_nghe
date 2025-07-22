@@ -17,5 +17,6 @@ public enum Pages {
     QLKH,
     QLNV,
     QLSP,
-    QLTH
+    QLTH,
+    LOGIN
 }
