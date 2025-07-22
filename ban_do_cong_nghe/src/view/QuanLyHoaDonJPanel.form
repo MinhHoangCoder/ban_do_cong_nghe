@@ -51,10 +51,10 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtMANV" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtTENNV" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="txtNGAYLAP" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="txtTONGTIEN" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="txtMAKH" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtTENKH" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -88,7 +88,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="173" max="32767" attributes="0"/>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,7 +111,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtMAKH" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTENKH" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbTT" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -131,7 +131,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMANV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTENNV" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -176,7 +176,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="M&#xe3; Kh&#xe1;ch H&#xe0;ng"/>
+        <Property name="text" type="java.lang.String" value="T&#xea;n Kh&#xe1;ch H&#xe0;ng"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -186,7 +186,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="M&#xe3; Nh&#xe2;n Vi&#xea;n"/>
+        <Property name="text" type="java.lang.String" value="T&#xea;n Nh&#xe2;n Vi&#xea;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -214,7 +214,7 @@
         <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng Th&#xe1;i"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMAKH">
+    <Component class="javax.swing.JTextField" name="txtTENKH">
     </Component>
     <Component class="javax.swing.JComboBox" name="cbHTTT">
       <Properties>
@@ -252,7 +252,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtMAHD">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMANV">
+    <Component class="javax.swing.JTextField" name="txtTENNV">
     </Component>
     <Component class="javax.swing.JTextField" name="txtNGAYLAP">
     </Component>
@@ -270,8 +270,8 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="9" rowCount="4">
                 <Column editable="true" title="M&#xe3; H&#xf3;a &#x110;&#x1a1;n" type="java.lang.Object"/>
-                <Column editable="true" title="M&#xe3; Kh&#xe1;ch H&#xe0;ng" type="java.lang.Object"/>
-                <Column editable="true" title="M&#xe3; Nh&#xe2;n Vi&#xea;n" type="java.lang.Object"/>
+                <Column editable="true" title="T&#xea;n Kh&#xe1;ch H&#xe0;ng" type="java.lang.Object"/>
+                <Column editable="true" title="T&#xea;n Nh&#xe2;n Vi&#xea;n" type="java.lang.Object"/>
                 <Column editable="true" title="Ng&#xe0;y L&#x1ead;p" type="java.lang.Object"/>
                 <Column editable="true" title="T&#x1ed5;ng Ti&#x1ec1;n" type="java.lang.Object"/>
                 <Column editable="true" title="H&#xec;nh Th&#x1ee9;c Thanh To&#xe1;n" type="java.lang.Object"/>

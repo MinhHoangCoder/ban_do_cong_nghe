@@ -8,10 +8,11 @@ import dao.QLNVDAO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import entity.QLNVENTITY;
-import entity.QuyenENTITY;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +22,15 @@ import javax.swing.JOptionPane;
 public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
 
     QLNVDAO nvdao = new QLNVDAO();
+    private Map<String, Integer> qmap = new HashMap<>();
+    private String getKeyFromValue(Map<String, Integer> map, int value){
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                if(entry.getValue() == value){
+                    return entry.getKey();
+                }
+            }
+            return null;
+        }
     /**
      * Creates new form QuanLyNhanVienJPanel
      */
@@ -32,10 +42,12 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
     }
     
     public void fillCB(){
+        qmap.put("Admin", 1);
+        qmap.put("Nhân Viên", 2);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         model.removeAllElements();
-        for (QuyenENTITY quyen : nvdao.getAllQuyen()) {
-            model.addElement(quyen.getTenQ());
+        for (Map.Entry<String, Integer> entry : qmap.entrySet()) {
+            model.addElement(entry.getKey());
         }
         cbQUYEN.setModel(model);
     }
@@ -44,6 +56,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblQLNV.getModel();
         model.setRowCount(0);
         for (QLNVENTITY nv : nvdao.getAllNV()) {
+            String tenQ = getKeyFromValue(qmap, nv.getQuyen());
             Object data[] = {
                 nv.getMaNV(),
                 nv.getTenNV(),
@@ -52,7 +65,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
                 nv.getEmail(),
                 nv.getDiaChi(),
                 nv.getMatKhau(),
-                nv.getQuyen()
+                tenQ
             };
             model.addRow(data);
         }
@@ -60,12 +73,13 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
     }
     
     public QLNVENTITY getNV(){
-        String tenNV = txtTENNV.getText();
-        String sdt = txtSDT.getText();
-        String email = txtEMAIL.getText();
-        String diaChi = txtDIACHI.getText();
-        String matKhau = txtMATKHAU.getText();
-        String quyen = String.valueOf(cbQUYEN.getSelectedItem());
+        String tenNV = txtTENNV.getText().trim();
+        String sdt = txtSDT.getText().trim();
+        String email = txtEMAIL.getText().trim();
+        String diaChi = txtDIACHI.getText().trim();
+        String matKhau = txtMATKHAU.getText().trim();
+        String quyen = (String) cbQUYEN.getSelectedItem();
+        int maQ = qmap.get(quyen);
         
         LocalDate ngaySinh = null;
         try {
@@ -77,10 +91,10 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         
         int maNV = 0;
         if (!txtMANV.getText().isBlank()) {
-            maNV = Integer.parseInt(txtMANV.getText());
+            maNV = Integer.parseInt(txtMANV.getText().trim());
         }
         
-        QLNVENTITY nv = new QLNVENTITY(maNV, quyen, tenNV, sdt, email, diaChi, matKhau, ngaySinh);
+        QLNVENTITY nv = new QLNVENTITY(maNV, maQ, tenNV, sdt, email, diaChi, matKhau, ngaySinh);
         return nv;
     };
     
@@ -341,8 +355,15 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn xóa nhân viên này không ?");
         if(confirm == JOptionPane.YES_OPTION){
-            int maNV = Integer.parseInt(txtMANV.getText());
+            int maNV = Integer.parseInt(txtMANV.getText().trim());
             nvdao.deleteNV(maNV);
+            txtMATKHAU.setText(" ");
+            txtDIACHI.setText(" ");
+            txtEMAIL.setText(" ");
+            txtMANV.setText(" ");
+            txtNGAYSINH.setText(" ");
+            txtSDT.setText(" ");
+            txtTENNV.setText(" ");
             fillTable();
             JOptionPane.showMessageDialog(btnTHEM, "Xóa thành công!");
         }

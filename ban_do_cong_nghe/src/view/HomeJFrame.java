@@ -41,7 +41,11 @@ public class HomeJFrame extends javax.swing.JFrame {
                 break;
             case QLSP:
                 panelToShow = new QuanLySanPhamJPanel();
-                break;              
+                break; 
+            case LOGIN:
+                panelToShow = new AnhBiaJPanel();
+                hideButton();
+                break;
         }
     }
 
@@ -50,6 +54,13 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain.add(panel);
         pnlMain.validate();
         pnlMain.repaint();
+    }
+    
+    private void hideButton(){
+        btnQLNV.setVisible(false);
+        btnQLDM.setVisible(false);
+        btnQLTH.setVisible(false);
+        btnQLSP.setVisible(false);
     }
 
     /**
@@ -69,6 +80,8 @@ public class HomeJFrame extends javax.swing.JFrame {
         btnQLTH = new javax.swing.JButton();
         btnQLDM = new javax.swing.JButton();
         btnQLNV = new javax.swing.JButton();
+        btnDOIMATKHAU = new javax.swing.JButton();
+        btnDANGXUAT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,6 +136,20 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDOIMATKHAU.setText("Đổi Mật Khẩu");
+        btnDOIMATKHAU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDOIMATKHAUActionPerformed(evt);
+            }
+        });
+
+        btnDANGXUAT.setText("Đăng Xuất");
+        btnDANGXUAT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDANGXUATActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,7 +165,9 @@ public class HomeJFrame extends javax.swing.JFrame {
                     .addComponent(btnQLDM, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(btnQLNV, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(btnQLSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQLTH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnQLTH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDOIMATKHAU, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnDANGXUAT, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
         );
@@ -148,7 +177,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(btnQLKH, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQLHD, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,7 +189,11 @@ public class HomeJFrame extends javax.swing.JFrame {
                 .addComponent(btnQLDM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQLNV, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnDOIMATKHAU, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDANGXUAT, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         pnlMain.getAccessibleContext().setAccessibleName("");
@@ -207,6 +240,14 @@ public class HomeJFrame extends javax.swing.JFrame {
         showPanel(new AnhBiaJPanel());
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void btnDOIMATKHAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDOIMATKHAUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDOIMATKHAUActionPerformed
+
+    private void btnDANGXUATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDANGXUATActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDANGXUATActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +285,8 @@ public class HomeJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDANGXUAT;
+    private javax.swing.JButton btnDOIMATKHAU;
     private javax.swing.JButton btnQLDM;
     private javax.swing.JButton btnQLHD;
     private javax.swing.JButton btnQLKH;

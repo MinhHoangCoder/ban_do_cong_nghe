@@ -4,17 +4,48 @@
  */
 package view;
 
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author thanh
  */
 public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
+    private Map<String, Integer> htttmap = new HashMap<>();
+    private Map<String, Integer> tthdmap = new HashMap<>();
     /**
      * Creates new form ProductJPanel
      */
     public QuanLyHoaDonJPanel() {
         initComponents();
+        fillCBHTTT();
+        fillCBTTHD();
+    }
+    
+    public void fillCBHTTT(){
+        htttmap.put("Offline", 1);
+        htttmap.put("Online", 2);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.removeAllElements();
+        for (Map.Entry<String, Integer> entry : htttmap.entrySet()) {
+            model.addElement(entry.getValue());
+        }
+        cbHTTT.setModel(model);
+    }
+    
+    public void fillCBTTHD(){
+        tthdmap.put("Mới Tạo", 0);
+        tthdmap.put("Đã Thanh Toán", 1);
+        tthdmap.put("Hủy", 2);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.removeAllElements();
+        for (Map.Entry<String, Integer> entry : tthdmap.entrySet()) {
+            model.addElement(entry.getValue());
+        }
+        cbTT.setModel(model);
     }
 
     /**
@@ -36,13 +67,13 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtMAKH = new javax.swing.JTextField();
+        txtTENKH = new javax.swing.JTextField();
         cbHTTT = new javax.swing.JComboBox<>();
         cbTT = new javax.swing.JComboBox<>();
         txtLIDOHUY = new javax.swing.JTextField();
         txtGHICHU = new javax.swing.JTextField();
         txtMAHD = new javax.swing.JTextField();
-        txtMANV = new javax.swing.JTextField();
+        txtTENNV = new javax.swing.JTextField();
         txtNGAYLAP = new javax.swing.JTextField();
         txtTONGTIEN = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -57,11 +88,11 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Mã Hóa Đơn");
 
-        jLabel3.setText("Mã Khách Hàng");
+        jLabel3.setText("Tên Khách Hàng");
 
         jLabel4.setText("Hình Thức Thanh Toán");
 
-        jLabel5.setText("Mã Nhân Viên");
+        jLabel5.setText("Tên Nhân Viên");
 
         jLabel6.setText("Tổng Tiền");
 
@@ -85,7 +116,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Hóa Đơn", "Mã Khách Hàng", "Mã Nhân Viên", "Ngày Lập", "Tổng Tiền", "Hình Thức Thanh Toán", "Trạng Thái", "Lí Do Hủy", "Ghi Chú"
+                "Mã Hóa Đơn", "Tên Khách Hàng", "Tên Nhân Viên", "Ngày Lập", "Tổng Tiền", "Hình Thức Thanh Toán", "Trạng Thái", "Lí Do Hủy", "Ghi Chú"
             }
         ));
         jScrollPane1.setViewportView(tblHOADON);
@@ -138,10 +169,10 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel5))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtMANV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTENNV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtNGAYLAP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtTONGTIEN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtMAKH, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtTENKH, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -163,7 +194,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtGHICHU, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLIDOHUY, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +213,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtMAKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTENKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
                             .addComponent(cbTT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -198,7 +229,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(txtMANV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtTENNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel7)
@@ -245,9 +276,9 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtGHICHU;
     private javax.swing.JTextField txtLIDOHUY;
     private javax.swing.JTextField txtMAHD;
-    private javax.swing.JTextField txtMAKH;
-    private javax.swing.JTextField txtMANV;
     private javax.swing.JTextField txtNGAYLAP;
+    private javax.swing.JTextField txtTENKH;
+    private javax.swing.JTextField txtTENNV;
     private javax.swing.JTextField txtTONGTIEN;
     // End of variables declaration//GEN-END:variables
 }

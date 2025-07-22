@@ -4,6 +4,16 @@
  */
 package view;
 
+import dao.QLNVDAO;
+import entity.QLNVENTITY;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author thanh
@@ -16,7 +26,87 @@ public class LoginJFrame extends javax.swing.JFrame {
     public LoginJFrame() {
         initComponents();
         setLocationRelativeTo(null);
+        xuLyDangNhap();
     }
+    
+    public void xuLyDangNhap(){
+        hienThiMatKhauCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (hienThiMatKhauCheckBox.isSelected()) {
+                    txtMATKHAU.setEchoChar((char) 0);  // Hiển thị mật khẩu
+                } else {
+                    txtMATKHAU.setEchoChar('*');  // Ẩn mật khẩu
+                }
+            }
+        });
+    }
+    
+    public void xuLyNutDangNhap(){
+        btnDANGNHAP.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username = txtUSERNAME.getText().trim();
+                String password = new String(txtMATKHAU.getPassword()).trim();
+
+                // Kiểm tra thông tin đăng nhập
+                if (isValidInput(username, password)) {
+                    // Kiểm tra tài khoản và mật khẩu
+                    QLNVDAO dao = new QLNVDAO();
+                    QLNVENTITY user = dao.getUserByEmailOrPhone(username);
+                    if (user != null && password.equals(user.getMatKhau())) {
+                        // Chuyển đến trang chính theo quyền
+                        openHomePage(user.getQuyen());
+                    } else {
+                        JOptionPane.showMessageDialog(rootPane, "Sai thông tin đăng nhập!");
+                    }
+                }
+            }
+        });
+    }
+    
+    private boolean isValidInput(String username, String password) {
+        // Kiểm tra cú pháp email
+        if (username.contains("@")) {
+            Pattern emailPattern = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
+            Matcher emailMatcher = emailPattern.matcher(username);
+            if (!emailMatcher.matches()) {
+                JOptionPane.showConfirmDialog(rootPane, "Email không hợp lệ!");
+                return false;
+            }
+        }
+        // Kiểm tra cú pháp số điện thoại
+        else {
+            if (username.length() < 10 || username.length() > 11 || !username.startsWith("0")) {
+                JOptionPane.showMessageDialog(rootPane, "Số điện thoại không hợp lệ!");
+                return false;
+            }
+        }
+
+        // Kiểm tra mật khẩu
+        if (password.isEmpty() || password.equals("Mật Khẩu")) {
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập mật khẩu!");
+            return false;
+        }
+
+        return true;
+    }
+
+    // Mở trang Home tùy theo quyền
+    private void openHomePage(int quyen) {
+        if (quyen == 1) {
+            HomeJFrame homeJFrame = new HomeJFrame(1);
+            homeJFrame.setVisible(true);
+            this.dispose();
+            JOptionPane.showMessageDialog(rootPane, "Đăng nhập thành công với tư cách là Admin!");
+        } else if (quyen == 2) {
+            HomeJFrame homeJFrame = new HomeJFrame(10);
+            homeJFrame.setVisible(true);
+            this.dispose();
+            JOptionPane.showMessageDialog(rootPane, "Đăng nhập thành công với tư cách là Nhân Viên!");
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,29 +117,33 @@ public class LoginJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
+        txtUSERNAME = new javax.swing.JTextField();
+        btnDANGNHAP = new javax.swing.JButton();
+        btnTHOAT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        hienThiMatKhauCheckBox = new javax.swing.JCheckBox();
+        txtMATKHAU = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnDANGNHAP.setText("Đăng Nhập");
+        btnDANGNHAP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                btnDANGNHAPActionPerformed(evt);
             }
         });
 
-        btnExit.setText("Exit");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
+        btnTHOAT.setText("Thoát");
+        btnTHOAT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
+                btnTHOATActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Login Form");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Đăng Nhập Vào Quản Lý Bán Đồ Công Nghệ");
+
+        hienThiMatKhauCheckBox.setText("Hiển Thị Mật Khẩu");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,16 +151,16 @@ public class LoginJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnExit)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLogin))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                        .addComponent(btnDANGNHAP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnTHOAT))
+                    .addComponent(hienThiMatKhauCheckBox)
+                    .addComponent(txtUSERNAME)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtMATKHAU))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,30 +168,30 @@ public class LoginJFrame extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUSERNAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(txtMATKHAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(hienThiMatKhauCheckBox)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnExit))
-                .addContainerGap(128, Short.MAX_VALUE))
+                    .addComponent(btnDANGNHAP)
+                    .addComponent(btnTHOAT))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void btnDANGNHAPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDANGNHAPActionPerformed
         // TODO add your handling code here:
-        HomeJFrame homeJFrame = new HomeJFrame(1);
-        homeJFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnLoginActionPerformed
+        xuLyNutDangNhap();
+    }//GEN-LAST:event_btnDANGNHAPActionPerformed
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+    private void btnTHOATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHOATActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_btnExitActionPerformed
+    }//GEN-LAST:event_btnTHOATActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,10 +230,11 @@ public class LoginJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnDANGNHAP;
+    private javax.swing.JButton btnTHOAT;
+    private javax.swing.JCheckBox hienThiMatKhauCheckBox;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField txtMATKHAU;
+    private javax.swing.JTextField txtUSERNAME;
     // End of variables declaration//GEN-END:variables
 }

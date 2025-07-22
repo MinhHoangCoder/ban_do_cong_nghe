@@ -14,7 +14,7 @@ import java.util.List;
 
 import utils.ConnectDB;
 import entity.QLNVENTITY;
-import entity.QuyenENTITY;
+import java.sql.SQLException;
 
 /**
  *
@@ -35,12 +35,9 @@ public class QLNVDAO {
                     ngaySinh = sqlDate.toLocalDate();
                 }
                 
-                int maQ = rs.getInt("quyen");
-                String tenQuyen = convertQuyenIntToString(maQ);
-                
                 QLNVENTITY nv = new QLNVENTITY(
                         rs.getInt("maNV"), 
-                        tenQuyen, 
+                        rs.getInt("quyen"), 
                         rs.getString("tenNV"), 
                         rs.getString("soDienThoai"), 
                         rs.getString("email"), 
@@ -49,7 +46,7 @@ public class QLNVDAO {
                         ngaySinh);
                 Lst.add(nv);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return Lst;
@@ -68,45 +65,11 @@ public class QLNVDAO {
             ps.setString(4, nv.getEmail());
             ps.setString(5, nv.getDiaChi());
             ps.setString(6, nv.getMatKhau());
-            ps.setInt(7, this.convertQuyenStringToInt(nv.getQuyen()));
+            ps.setInt(7, nv.getQuyen());
             ps.execute();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    
-    public int convertQuyenStringToInt(String tenQuyen){
-        int maQuyen = 0;
-        try {
-            Connection con = ConnectDB.getConnect();
-            String sql = "SELECT maQ FROM quyen where tenQ = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, tenQuyen);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                maQuyen = rs.getInt("maQ");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return maQuyen;
-    }
-    
-    public String convertQuyenIntToString(int maQuyen) {
-        String tenQuyen = "";
-        try {
-            Connection con = ConnectDB.getConnect();
-            String sql = "SELECT tenQ FROM quyen WHERE maQ = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, maQuyen);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                tenQuyen = rs.getString("tenQ");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return tenQuyen;
     }
     
     public void updateNV(QLNVENTITY nv){
@@ -128,10 +91,10 @@ public class QLNVDAO {
             ps.setString(4, nv.getEmail());
             ps.setString(5, nv.getDiaChi());
             ps.setString(6, nv.getMatKhau());
-            ps.setInt(7, this.convertQuyenStringToInt(nv.getQuyen()));
+            ps.setInt(7, nv.getQuyen());
             ps.setInt(8, nv.getMaNV());
             ps.execute();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -143,25 +106,43 @@ public class QLNVDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, maNV);
             ps.execute();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     
-    public List<QuyenENTITY> getAllQuyen(){
-        List<QuyenENTITY> Lst = new ArrayList<>();
-        try {
-            Connection con = ConnectDB.getConnect();
-            String sql = "SELECT * FROM quyen";
-            PreparedStatement ps = con.prepareStatement(sql);
+    public QLNVENTITY getUserByEmailOrPhone(String username) {
+        String sql = "SELECT * FROM QLNV WHERE email = ? OR soDienThoai = ?";
+        QLNVENTITY user = null;
+
+        try (Connection con = ConnectDB.getConnect();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, username);
+            ps.setString(2, username);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                QuyenENTITY q = new QuyenENTITY(rs.getInt("maQ"), rs.getString("tenQ"));
-                Lst.add(q);
+
+            if (rs.next()) {
+                Date sqlDate = rs.getDate("ngaySinh");
+                LocalDate ngaySinh = null;
+                if (sqlDate != null) {
+                    ngaySinh = sqlDate.toLocalDate();
+                }
+                user = new QLNVENTITY(
+                        rs.getInt("maNV"), 
+                        rs.getInt("quyen"), 
+                        rs.getString("tenNV"), 
+                        rs.getString("soDienThoai"), 
+                        rs.getString("email"), 
+                        rs.getString("diaChi"), 
+                        rs.getString("matKhau"), 
+                        ngaySinh
+                );
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return Lst;
+
+        return user;
     }
 }
