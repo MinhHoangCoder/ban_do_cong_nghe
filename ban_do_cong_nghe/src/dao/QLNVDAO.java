@@ -66,7 +66,7 @@ public class QLNVDAO {
             ps.setString(5, nv.getDiaChi());
             ps.setString(6, nv.getMatKhau());
             ps.setInt(7, nv.getQuyen());
-            ps.execute();
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -93,7 +93,7 @@ public class QLNVDAO {
             ps.setString(6, nv.getMatKhau());
             ps.setInt(7, nv.getQuyen());
             ps.setInt(8, nv.getMaNV());
-            ps.execute();
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -105,7 +105,7 @@ public class QLNVDAO {
             String sql = "DELETE FROM QLNV where maNV = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, maNV);
-            ps.execute();
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -144,5 +144,19 @@ public class QLNVDAO {
         }
 
         return user;
+    }
+    
+    public void updatePassword(String PW, QLNVENTITY user){
+        String sql = "UPDATE QLNV SET "
+                + "matKhau = ? "
+                + "WHERE email = ?";
+        try(Connection con = ConnectDB.getConnect();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, PW);
+            ps.setString(2, user.getEmail());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

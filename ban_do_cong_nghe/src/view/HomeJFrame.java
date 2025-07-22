@@ -4,17 +4,20 @@
  */
 package view;
 
+import entity.QLNVENTITY;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+import utils.Global;
 
 /**
  *
  * @author thanh
  */
 public class HomeJFrame extends javax.swing.JFrame {
-
+ư
     private Pages currentPage;
+    QLNVENTITY me = Global.getCurrentUser();
     /**
      * Creates new form HomeJFrame
      */
@@ -22,6 +25,11 @@ public class HomeJFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         currentPage = Pages.values()[id - 1];
+        welcome();
+    }
+    
+    public void welcome(){
+        txtWELCOME.setText("Hello, " + me.getTenNV());
     }
     
     private void switchPage(Pages page){
@@ -75,13 +83,13 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         btnQLKH = new javax.swing.JButton();
         btnQLHD = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnQLSP = new javax.swing.JButton();
         btnQLTH = new javax.swing.JButton();
         btnQLDM = new javax.swing.JButton();
         btnQLNV = new javax.swing.JButton();
         btnDOIMATKHAU = new javax.swing.JButton();
         btnDANGXUAT = new javax.swing.JButton();
+        txtWELCOME = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,12 +107,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         btnQLHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQLHDActionPerformed(evt);
-            }
-        });
-
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
             }
         });
 
@@ -156,18 +158,16 @@ public class HomeJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnQLHD, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnQLKH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQLDM, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnQLNV, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnQLSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQLTH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDOIMATKHAU, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnDANGXUAT, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnQLHD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnQLKH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLDM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnQLNV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnQLSP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLTH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDOIMATKHAU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnDANGXUAT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(txtWELCOME))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
         );
@@ -176,8 +176,8 @@ public class HomeJFrame extends javax.swing.JFrame {
             .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(txtWELCOME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addComponent(btnQLKH, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQLHD, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,17 +235,19 @@ public class HomeJFrame extends javax.swing.JFrame {
         QLTHFrame.setVisible(true); 
     }//GEN-LAST:event_btnQLTHActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        showPanel(new AnhBiaJPanel());
-    }//GEN-LAST:event_jLabel1MouseClicked
-
     private void btnDOIMATKHAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDOIMATKHAUActionPerformed
         // TODO add your handling code here:
+        ChangePassword CP = new ChangePassword();
+        CP.setLocationRelativeTo(null);
+        CP.setVisible(true);
     }//GEN-LAST:event_btnDOIMATKHAUActionPerformed
 
     private void btnDANGXUATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDANGXUATActionPerformed
         // TODO add your handling code here:
+        LoginJFrame LG = new LoginJFrame();
+        LG.setLocationRelativeTo(null);
+        LG.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnDANGXUATActionPerformed
 
     /**
@@ -293,7 +295,7 @@ public class HomeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnQLNV;
     private javax.swing.JButton btnQLSP;
     private javax.swing.JButton btnQLTH;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlMain;
+    private javax.swing.JTextField txtWELCOME;
     // End of variables declaration//GEN-END:variables
 }
