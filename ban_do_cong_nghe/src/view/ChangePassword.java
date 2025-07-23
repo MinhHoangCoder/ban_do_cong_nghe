@@ -22,11 +22,6 @@ public class ChangePassword extends javax.swing.JFrame {
     public ChangePassword() {
         initComponents();
     }
-    
-    public void xuLyDoiMK(){
-        String mkm = txtMKMOI.getText();
-        
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,35 +32,23 @@ public class ChangePassword extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtMKCU = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtMKMOI = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnDOIMK = new javax.swing.JButton();
         btnQUAYLAI = new javax.swing.JButton();
-        txtXNMKMOI = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        txtMKCU = new javax.swing.JPasswordField();
+        txtMKMOI = new javax.swing.JPasswordField();
+        txtXNMKMOI = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        txtMKCU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMKCUActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setText("Đổi Mật Khẩu");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         jLabel2.setText(" Mật Khẩu Cũ");
-
-        txtMKMOI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMKMOIActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         jLabel3.setText(" Mật Khẩu Mới");
@@ -78,12 +61,6 @@ public class ChangePassword extends javax.swing.JFrame {
         });
 
         btnQUAYLAI.setText("Quay Lại");
-
-        txtXNMKMOI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtXNMKMOIActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         jLabel4.setText(" Xác Nhận Mật Khẩu Mới");
@@ -99,18 +76,17 @@ public class ChangePassword extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2)
-                                .addComponent(txtMKCU)
-                                .addComponent(txtMKMOI)
-                                .addComponent(jLabel4)
-                                .addComponent(txtXNMKMOI, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnDOIMK)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnQUAYLAI)))))
+                                .addComponent(btnQUAYLAI))
+                            .addComponent(txtMKCU)
+                            .addComponent(txtMKMOI)
+                            .addComponent(txtXNMKMOI, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,14 +115,6 @@ public class ChangePassword extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtMKCUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMKCUActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMKCUActionPerformed
-
-    private void txtMKMOIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMKMOIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMKMOIActionPerformed
 
     private void btnDOIMKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDOIMKActionPerformed
         // TODO add your handling code here:
@@ -181,10 +149,6 @@ public class ChangePassword extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Đổi mật khẩu thành công.");
             this.dispose();
     }//GEN-LAST:event_btnDOIMKActionPerformed
-
-    private void txtXNMKMOIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtXNMKMOIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtXNMKMOIActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,8 +192,8 @@ public class ChangePassword extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtMKCU;
-    private javax.swing.JTextField txtMKMOI;
-    private javax.swing.JTextField txtXNMKMOI;
+    private javax.swing.JPasswordField txtMKCU;
+    private javax.swing.JPasswordField txtMKMOI;
+    private javax.swing.JPasswordField txtXNMKMOI;
     // End of variables declaration//GEN-END:variables
 }

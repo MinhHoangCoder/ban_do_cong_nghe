@@ -15,7 +15,6 @@ import utils.Global;
  * @author thanh
  */
 public class HomeJFrame extends javax.swing.JFrame {
-ư
     private Pages currentPage;
     QLNVENTITY me = Global.getCurrentUser();
     /**
