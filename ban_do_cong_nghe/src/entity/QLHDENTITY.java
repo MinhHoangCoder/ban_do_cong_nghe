@@ -11,24 +11,42 @@ import java.time.LocalDate;
  * @author MSI USER
  */
 public class QLHDENTITY {
-    private int maHD, maKH, maNV, hTTT, trangThaiHD;
+    private int maHD, maNV, maKH, hTTT, trangThaiHD;
     private LocalDate ngayLapHD;
     private float tongTien;
     private String liDoHuy, ghiChu;
 
-    public QLHDENTITY() {
-    }
-
-    public QLHDENTITY(int maHD, int maKH, int maNV, int hTTT, int trangThaiHD, LocalDate ngayLapHD, float tongTien, String liDoHuy, String ghiChu) {
+    public QLHDENTITY(int maHD, int maNV, int maKH, int hTTT, int trangThaiHD, LocalDate ngayLapHD, float tongTien, String liDoHuy, String ghiChu) {
         this.maHD = maHD;
-        this.maKH = maKH;
         this.maNV = maNV;
+        this.maKH = maKH;
         this.hTTT = hTTT;
         this.trangThaiHD = trangThaiHD;
         this.ngayLapHD = ngayLapHD;
         this.tongTien = tongTien;
         this.liDoHuy = liDoHuy;
         this.ghiChu = ghiChu;
+    }
+
+    public QLHDENTITY(int maNV, int maKH, int hTTT, float tongTien, String liDoHuy, String ghiChu) {
+        this.maNV = maNV;
+        this.maKH = maKH;
+        this.hTTT = hTTT;
+        this.tongTien = tongTien;
+        this.liDoHuy = liDoHuy;
+        this.ghiChu = ghiChu;
+    }
+
+    public QLHDENTITY(int maHD, int hTTT, float tongTien, String ghiChu) {
+        this.maHD = maHD;
+        this.hTTT = hTTT;
+        this.tongTien = tongTien;
+        this.ghiChu = ghiChu;
+    }
+    
+    
+
+    public QLHDENTITY() {
     }
 
     public int getMaHD() {
@@ -39,20 +57,20 @@ public class QLHDENTITY {
         this.maHD = maHD;
     }
 
-    public int getMaKH() {
-        return maKH;
-    }
-
-    public void setMaKH(int maKH) {
-        this.maKH = maKH;
-    }
-
     public int getMaNV() {
         return maNV;
     }
 
     public void setMaNV(int maNV) {
         this.maNV = maNV;
+    }
+
+    public int getMaKH() {
+        return maKH;
+    }
+
+    public void setMaKH(int maKH) {
+        this.maKH = maKH;
     }
 
     public int gethTTT() {
@@ -102,6 +120,6 @@ public class QLHDENTITY {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
-    
+
     
 }

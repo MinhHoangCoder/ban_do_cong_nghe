@@ -26,18 +26,18 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnQLHD" alignment="1" pref="200" max="32767" attributes="0"/>
-                  <Component id="btnQLKH" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnQLDM" alignment="1" pref="200" max="32767" attributes="0"/>
-                  <Component id="btnQLNV" alignment="1" pref="200" max="32767" attributes="0"/>
+                  <Component id="btnQLBH" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnQLKH" alignment="1" pref="202" max="32767" attributes="0"/>
+                  <Component id="btnQLNV" alignment="1" max="32767" attributes="0"/>
                   <Component id="btnQLSP" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnQLTH" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnDOIMATKHAU" alignment="1" pref="200" max="32767" attributes="0"/>
-                  <Component id="btnDANGXUAT" alignment="1" pref="200" max="32767" attributes="0"/>
+                  <Component id="btnDOIMATKHAU" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnDANGXUAT" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtWELCOME" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnQLHD" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pnlMain" pref="1000" max="32767" attributes="0"/>
+              <Component id="pnlMain" min="-2" pref="1050" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,19 +47,17 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtWELCOME" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace pref="113" max="32767" attributes="0"/>
               <Component id="btnQLKH" min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnQLBH" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLHD" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLSP" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnQLTH" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnQLDM" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLNV" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
               <Component id="btnDOIMATKHAU" min="-2" pref="52" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnDANGXUAT" min="-2" pref="52" max="-2" attributes="0"/>
@@ -93,12 +91,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLKHActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnQLHD">
+    <Component class="javax.swing.JButton" name="btnQLBH">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; H&#xf3;a &#x110;&#x1a1;n"/>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; B&#xe1;n H&#xe0;ng"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLHDActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLBHActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnQLSP">
@@ -107,22 +105,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLSPActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnQLTH">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Th&#x1b0;&#x1a1;ng Hi&#x1ec7;u"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLTHActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnQLDM">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Danh M&#x1ee5;c"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLDMActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnQLNV">
@@ -150,6 +132,14 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtWELCOME">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnQLHD">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; H&#xf3;a &#x110;&#x1a1;n"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLHDActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

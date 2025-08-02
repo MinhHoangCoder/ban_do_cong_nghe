@@ -101,6 +101,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="txtUSERNAME">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0904967551"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnDANGNHAP">
       <Properties>
@@ -132,6 +135,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtMATKHAU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="123123"/>
+      </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
 

@@ -15,12 +15,31 @@ import java.util.List;
 import utils.ConnectDB;
 import entity.QLNVENTITY;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author MSI USER
  */
 public class QLNVDAO {
+    public Map<String, Integer> getTenNV(){
+        Map<String, Integer> tnvmap = new HashMap();
+        String sql = "select maNV, tenNV from QLNV";
+        try(Connection con = ConnectDB.getConnect();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery()) {
+            while(rs.next()){
+                String tenNV = rs.getString("tenNV");
+                int maNV = rs.getInt("maNV");
+                tnvmap.put(tenNV, maNV);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tnvmap;
+    }
+    
     public List<QLNVENTITY> getAllNV(){
         List<QLNVENTITY> Lst = new ArrayList<>();
         try {
