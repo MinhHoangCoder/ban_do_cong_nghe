@@ -134,6 +134,8 @@ public class LoginJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtUSERNAME.setText("0904967551");
+
         btnDANGNHAP.setText("Đăng Nhập");
         btnDANGNHAP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +154,8 @@ public class LoginJFrame extends javax.swing.JFrame {
         jLabel1.setText("Đăng Nhập Vào Quản Lý Bán Đồ Công Nghệ");
 
         hienThiMatKhauCheckBox.setText("Hiển Thị Mật Khẩu");
+
+        txtMATKHAU.setText("123123");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

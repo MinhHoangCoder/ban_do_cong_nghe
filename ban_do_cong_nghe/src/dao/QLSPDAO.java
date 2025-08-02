@@ -129,4 +129,31 @@ public class QLSPDAO {
             e.printStackTrace();
         }
     }
+    
+    public QLSPENTITY getOneSP(int id){
+        String sql = "select sp.*, dm.tenDM, th.tenTH from QLSP sp "
+                + "join ThuongHieu th on th.maTH = sp.maTH "
+                + "join QLDM dm on dm.maDM = sp.maDM where sp.maSP = ?";
+        try(Connection con = ConnectDB.getConnect();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                QLSPENTITY sp = new QLSPENTITY(
+                    rs.getInt("maSP"), 
+                    rs.getInt("maDM"), 
+                    rs.getInt("maTH"), 
+                    rs.getInt("soLuongSP"), 
+                    rs.getInt("trangThaiSP"), 
+                    rs.getFloat("gia"),
+                    rs.getString("tenSP"),
+                    rs.getString("moTa"));
+                return sp;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

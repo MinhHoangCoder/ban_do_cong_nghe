@@ -38,7 +38,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 panelToShow = new AnhBiaJPanel();
                 break;
             case QLHD:
-                panelToShow = new QuanLyHoaDonJPanel();
+                panelToShow = new QuanLyBanHangJPanel();
                 break;
             case QLKH:
                 panelToShow = new QuanLyKhachHangJPanel();
@@ -65,8 +65,6 @@ public class HomeJFrame extends javax.swing.JFrame {
     
     private void hideButton(){
         btnQLNV.setVisible(false);
-        btnQLDM.setVisible(false);
-        btnQLTH.setVisible(false);
         btnQLSP.setVisible(false);
     }
 
@@ -81,14 +79,13 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         pnlMain = new javax.swing.JPanel();
         btnQLKH = new javax.swing.JButton();
-        btnQLHD = new javax.swing.JButton();
+        btnQLBH = new javax.swing.JButton();
         btnQLSP = new javax.swing.JButton();
-        btnQLTH = new javax.swing.JButton();
-        btnQLDM = new javax.swing.JButton();
         btnQLNV = new javax.swing.JButton();
         btnDOIMATKHAU = new javax.swing.JButton();
         btnDANGXUAT = new javax.swing.JButton();
         txtWELCOME = new javax.swing.JTextField();
+        btnQLHD = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,10 +99,10 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnQLHD.setText("Quản Lý Hóa Đơn");
-        btnQLHD.addActionListener(new java.awt.event.ActionListener() {
+        btnQLBH.setText("Quản Lý Bán Hàng");
+        btnQLBH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQLHDActionPerformed(evt);
+                btnQLBHActionPerformed(evt);
             }
         });
 
@@ -113,20 +110,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         btnQLSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQLSPActionPerformed(evt);
-            }
-        });
-
-        btnQLTH.setText("Quản Lý Thương Hiệu");
-        btnQLTH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQLTHActionPerformed(evt);
-            }
-        });
-
-        btnQLDM.setText("Quản Lý Danh Mục");
-        btnQLDM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQLDMActionPerformed(evt);
             }
         });
 
@@ -151,6 +134,13 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnQLHD.setText("Quản Lý Hóa Đơn");
+        btnQLHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLHDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,17 +148,17 @@ public class HomeJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnQLHD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnQLKH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQLDM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnQLNV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnQLBH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnQLKH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addComponent(btnQLNV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnQLSP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQLTH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDOIMATKHAU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnDANGXUAT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(txtWELCOME))
+                    .addComponent(btnDOIMATKHAU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDANGXUAT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtWELCOME)
+                    .addComponent(btnQLHD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
+                .addComponent(pnlMain, javax.swing.GroupLayout.PREFERRED_SIZE, 1050, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,19 +166,17 @@ public class HomeJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtWELCOME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(btnQLKH, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnQLBH, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQLHD, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQLSP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnQLTH, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnQLDM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnQLNV, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(85, 85, 85)
                 .addComponent(btnDOIMATKHAU, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnDANGXUAT, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,10 +193,10 @@ public class HomeJFrame extends javax.swing.JFrame {
         showPanel(new QuanLyKhachHangJPanel());
     }//GEN-LAST:event_btnQLKHActionPerformed
 
-    private void btnQLHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLHDActionPerformed
+    private void btnQLBHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLBHActionPerformed
         // TODO add your handling code here:
-        showPanel(new QuanLyHoaDonJPanel());
-    }//GEN-LAST:event_btnQLHDActionPerformed
+        showPanel(new QuanLyBanHangJPanel());
+    }//GEN-LAST:event_btnQLBHActionPerformed
 
     private void btnQLSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLSPActionPerformed
         // TODO add your handling code here:
@@ -219,20 +207,6 @@ public class HomeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         showPanel(new QuanLyNhanVienJPanel());
     }//GEN-LAST:event_btnQLNVActionPerformed
-
-    private void btnQLDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLDMActionPerformed
-        // TODO add your handling code here:
-        QuanLyDanhMucJFrame QLDMFrame = new QuanLyDanhMucJFrame(this, "Home");
-        QLDMFrame.setLocationRelativeTo(null);
-        QLDMFrame.setVisible(true); 
-    }//GEN-LAST:event_btnQLDMActionPerformed
-
-    private void btnQLTHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLTHActionPerformed
-        // TODO add your handling code here:
-        QuanLyThuongHieuJFrame QLTHFrame = new QuanLyThuongHieuJFrame(this, "Home");
-        QLTHFrame.setLocationRelativeTo(null);
-        QLTHFrame.setVisible(true); 
-    }//GEN-LAST:event_btnQLTHActionPerformed
 
     private void btnDOIMATKHAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDOIMATKHAUActionPerformed
         // TODO add your handling code here:
@@ -248,6 +222,10 @@ public class HomeJFrame extends javax.swing.JFrame {
         LG.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnDANGXUATActionPerformed
+
+    private void btnQLHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLHDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQLHDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,12 +266,11 @@ public class HomeJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDANGXUAT;
     private javax.swing.JButton btnDOIMATKHAU;
-    private javax.swing.JButton btnQLDM;
+    private javax.swing.JButton btnQLBH;
     private javax.swing.JButton btnQLHD;
     private javax.swing.JButton btnQLKH;
     private javax.swing.JButton btnQLNV;
     private javax.swing.JButton btnQLSP;
-    private javax.swing.JButton btnQLTH;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JTextField txtWELCOME;
     // End of variables declaration//GEN-END:variables

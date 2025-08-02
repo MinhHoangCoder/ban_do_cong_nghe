@@ -14,7 +14,23 @@ import utils.ConnectDB;
  * @author dattr
  */
 public class QLKHDAO {
-
+    public Map<String, Integer> getMAVATENKH(){
+        Map<String, Integer> khmap = new HashMap();
+        String sql = "select maKH, tenKH from QLKH";
+        try(Connection con = ConnectDB.getConnect();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery()) {
+            while(rs.next()){
+                String tenKH = rs.getString("tenKH");
+                int maKH = rs.getInt("maKH");
+                khmap.put(tenKH, maKH);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return khmap;
+    }
+    
     public List<QLKHENTITY> getAllKH() {
         List<QLKHENTITY> list = new ArrayList<>();
         try {
