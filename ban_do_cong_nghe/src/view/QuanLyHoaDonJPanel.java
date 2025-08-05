@@ -4,17 +4,51 @@
  */
 package view;
 
+import dao.QLHDDAO;
+import entity.QLHDENTITY;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MSI USER
  */
 public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
+        private Map<String, Integer> hdmap = new HashMap<>();
+        QLHDDAO hddao = new QLHDDAO();
+        
+            private String getKeyFromValue(Map<String, Integer> map, int value) {
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == value) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
     /**
      * Creates new form QuanLyHoaDonJPanel
      */
     public QuanLyHoaDonJPanel() {
         initComponents();
+        fillTable();
+    }
+    
+    public void fillTable(){
+        hdmap.put("Đang Xử Lý", 0);
+        hdmap.put("Đã Thanh Toán", 1);
+        hdmap.put("Hủy", 2);
+        DefaultTableModel model = (DefaultTableModel) tblQLHD.getModel();
+        model.setRowCount(0);
+        for (QLHDENTITY hoaDon : hddao.getAllHD()) {
+            Object data[] = {
+                hoaDon.getMaHD(), 
+                hoaDon.getNgayLapHD(), 
+                getKeyFromValue(hdmap, hoaDon.getTrangThaiHD())};
+            model.addRow(data);
+        }
+        tblQLHD.setModel(model);
     }
 
     /**
@@ -28,23 +62,23 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblQLHD = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setText("Quản Lý Hóa Đơn");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblQLHD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã Hóa Đơn", "Ngày Lập", "Trạng Thái"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblQLHD);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,6 +108,6 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblQLHD;
     // End of variables declaration//GEN-END:variables
 }
