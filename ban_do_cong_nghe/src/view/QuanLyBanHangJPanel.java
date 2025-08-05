@@ -663,9 +663,12 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                 if (cthdDao.checkExistSPInCTHD(maHD, maSP) == false) {
                     QLCTHDENTITY cthd = new QLCTHDENTITY(maHD, sp.getMaSP(), soLuong, sp.getGiaSP(), sp.getTenSP());
                     cthdDao.insertCTHD(cthd);
+                    sanPhamDao.updateQuantity(maSP);
                 } else {
                     cthdDao.increaseQuantityCTHD(maHD, maSP);
+                    sanPhamDao.updateQuantity(maSP);
                 }
+                this.fillSanPhamTable();
                 this.fillCTHDTable(maHD);
                 txtSOLUONGSP.setText(String.valueOf(cthdDao.getTotalItemsByMaHD(maHD)));
                 txtTONGTIEN.setText(String.valueOf(cthdDao.getTotalMoneyByMaHD(maHD)));

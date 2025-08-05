@@ -14,6 +14,17 @@ import utils.ConnectDB;
  * @author MSI USER
  */
 public class QLSPDAO {
+    public void updateQuantity(int maSP){
+        String sql = "update QLSP set soLuongSP -= 1 where maSP = ?";
+        try(Connection con = ConnectDB.getConnect();
+            PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, maSP);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        
     public Map<String, Integer> getTH(){
         Map<String, Integer> thmap = new HashMap();
         String sql = "select * from ThuongHieu";
