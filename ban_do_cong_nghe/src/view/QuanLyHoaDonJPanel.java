@@ -16,10 +16,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
-        private Map<String, Integer> hdmap = new HashMap<>();
-        QLHDDAO hddao = new QLHDDAO();
-        
-            private String getKeyFromValue(Map<String, Integer> map, int value) {
+    private Map<String, Integer> hdmap = new HashMap<>();
+    private Map<String, Integer> htttmap = new HashMap<>();
+        private Map<String, Integer> tnvmap = new HashMap<>();
+
+    QLHDDAO hddao = new QLHDDAO();
+
+    private String getKeyFromValue(Map<String, Integer> map, int value) {
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             if (entry.getValue() == value) {
                 return entry.getKey();
@@ -27,6 +30,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         }
         return null;
     }
+
     /**
      * Creates new form QuanLyHoaDonJPanel
      */
@@ -34,8 +38,8 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         initComponents();
         fillTable();
     }
-    
-    public void fillTable(){
+
+    public void fillTable() {
         hdmap.put("Đang Xử Lý", 0);
         hdmap.put("Đã Thanh Toán", 1);
         hdmap.put("Hủy", 2);
@@ -43,8 +47,12 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (QLHDENTITY hoaDon : hddao.getAllHD()) {
             Object data[] = {
-                hoaDon.getMaHD(), 
-                hoaDon.getNgayLapHD(), 
+                hoaDon.getMaHD(),
+                hoaDon.getMaNV(),
+                hoaDon.getMaKH(),
+                hoaDon.getNgayLapHD(),
+                hoaDon.getTongTien(),
+                getKeyFromValue(hdmap, hoaDon.gethTTT()),
                 getKeyFromValue(hdmap, hoaDon.getTrangThaiHD())};
             model.addRow(data);
         }
@@ -69,13 +77,13 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
         tblQLHD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Hóa Đơn", "Ngày Lập", "Trạng Thái"
+                "Mã Hóa Đơn", "Mã Nhân Viên", "Mã Khách Hàng", "Ngày Lập", "Tổng Tiền", "Hình Thức Thanh Toán", "Trạng Thái"
             }
         ));
         jScrollPane1.setViewportView(tblQLHD);
