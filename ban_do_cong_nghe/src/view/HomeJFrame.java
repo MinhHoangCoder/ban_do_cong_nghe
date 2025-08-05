@@ -225,6 +225,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
     private void btnQLHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLHDActionPerformed
         // TODO add your handling code here:
+        showPanel(new QuanLyHoaDonJPanel());
     }//GEN-LAST:event_btnQLHDActionPerformed
 
     /**
