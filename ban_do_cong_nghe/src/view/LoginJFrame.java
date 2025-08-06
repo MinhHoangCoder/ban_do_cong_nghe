@@ -136,6 +136,7 @@ public class LoginJFrame extends javax.swing.JFrame {
 
         txtUSERNAME.setText("0904967551");
 
+        btnDANGNHAP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Unknown person.png"))); // NOI18N
         btnDANGNHAP.setText("Đăng Nhập");
         btnDANGNHAP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +144,7 @@ public class LoginJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnTHOAT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Log out.png"))); // NOI18N
         btnTHOAT.setText("Thoát");
         btnTHOAT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +221,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();

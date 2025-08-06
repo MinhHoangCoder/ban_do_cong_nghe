@@ -115,7 +115,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnXOA" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSUA" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -275,6 +275,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnXOA">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Delete.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
       </Properties>
       <Events>
@@ -283,6 +286,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSUA">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Gear.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
       </Properties>
       <Events>
@@ -291,6 +297,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTHEM">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
       </Properties>
       <Events>
@@ -337,6 +346,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDANHMUC">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Th&#xea;m Danh M&#x1ee5;c"/>
       </Properties>
       <Events>
@@ -345,6 +357,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTHUONGHIEU">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Th&#xea;m Th&#x1b0;&#x1a1;ng Hi&#x1ec7;u"/>
       </Properties>
       <Events>

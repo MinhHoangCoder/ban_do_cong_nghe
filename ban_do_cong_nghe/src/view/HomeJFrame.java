@@ -94,6 +94,7 @@ public class HomeJFrame extends javax.swing.JFrame {
         pnlMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
         pnlMain.setLayout(new java.awt.BorderLayout());
 
+        btnQLKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Clien list.png"))); // NOI18N
         btnQLKH.setText("Quản Lý Khách Hàng");
         btnQLKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +102,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnQLBH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Gift.png"))); // NOI18N
         btnQLBH.setText("Quản Lý Bán Hàng");
         btnQLBH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +110,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnQLSP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Payment.png"))); // NOI18N
         btnQLSP.setText("Quản Lý Sản Phẩm");
         btnQLSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +118,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnQLNV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/User group.png"))); // NOI18N
         btnQLNV.setText("Quản Lý Nhân Viên");
         btnQLNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +126,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDOIMATKHAU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Computer.png"))); // NOI18N
         btnDOIMATKHAU.setText("Đổi Mật Khẩu");
         btnDOIMATKHAU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +134,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDANGXUAT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Log out.png"))); // NOI18N
         btnDANGXUAT.setText("Đăng Xuất");
         btnDANGXUAT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +142,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnQLHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Document.png"))); // NOI18N
         btnQLHD.setText("Quản Lý Hóa Đơn");
         btnQLHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

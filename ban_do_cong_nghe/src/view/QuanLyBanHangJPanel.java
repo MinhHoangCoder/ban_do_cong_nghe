@@ -229,6 +229,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
         jPanel10.setLayout(new java.awt.BorderLayout());
 
         btnTHANHTOAN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnTHANHTOAN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Cash register.png"))); // NOI18N
         btnTHANHTOAN.setText("Thanh Toán");
         btnTHANHTOAN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +239,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
         jPanel10.add(btnTHANHTOAN, java.awt.BorderLayout.CENTER);
 
         btnHUYHD.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnHUYHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/No.png"))); // NOI18N
         btnHUYHD.setText("Hủy Hóa Đơn");
         btnHUYHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,13 +252,14 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
 
         jPanel11.setLayout(new java.awt.BorderLayout());
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Thông Tin Khách Hàng");
 
         jLabel7.setText("Tên Khách Hàng:");
 
         jLabel8.setText("Số Điện Thoại:");
 
+        btnTHEMKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHEMKH.setText("Thêm");
         btnTHEMKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,17 +275,18 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTHEMKH, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSDT)
-                            .addComponent(txtTENKH))))
+                            .addComponent(txtTENKH)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnTHEMKH)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(17, 17, 17))
         );
         jPanel12Layout.setVerticalGroup(
@@ -399,7 +403,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(txtGHICHU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         jPanel11.add(jPanel13, java.awt.BorderLayout.CENTER);
@@ -440,10 +444,13 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Mã Sản Phẩm");
 
+        txtTIM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Search.png"))); // NOI18N
         txtTIM.setText("Tìm");
 
+        btnLAMMOI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Color wheel.png"))); // NOI18N
         btnLAMMOI.setText("Làm Mới");
 
+        btnTHEM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHEM.setText("Thêm");
         btnTHEM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,7 +467,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                         .addComponent(btnTHEM)
                         .addGap(18, 18, 18)
                         .addComponent(btnLAMMOI)
@@ -488,7 +495,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(txtMASP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTIM))
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel7, java.awt.BorderLayout.PAGE_START);
@@ -578,6 +585,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
         jPanel6.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         btnTAOHD.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnTAOHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add to basket.png"))); // NOI18N
         btnTAOHD.setText("Tạo Hóa Đơn");
         btnTAOHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
