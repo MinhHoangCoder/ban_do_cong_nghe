@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
+        private int rowHD = -1;
         private Map<String, Integer> hdmap = new HashMap<>();
         QLHDDAO hddao = new QLHDDAO();
         
@@ -63,6 +64,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblQLHD = new javax.swing.JTable();
+        btnCT = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setText("Quản Lý Hóa Đơn");
@@ -78,34 +80,65 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                 "Mã Hóa Đơn", "Ngày Lập", "Trạng Thái"
             }
         ));
+        tblQLHD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblQLHDMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblQLHD);
+
+        btnCT.setText("Chi Tiết");
+        btnCT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(402, 402, 402)
-                .addComponent(jLabel1)
-                .addContainerGap(449, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(402, 402, 402)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                        .addComponent(btnCT))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnCT))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tblQLHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQLHDMouseClicked
+        // TODO add your handling code here:
+        rowHD = tblQLHD.getSelectedRow();
+    }//GEN-LAST:event_tblQLHDMouseClicked
+
+    private void btnCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCTActionPerformed
+        // TODO add your handling code here:
+//        int maHD = Integer.parseInt(tblQLHD.getValueAt(rowHD, 0).toString());
+        CTHDJFrame cthd = new CTHDJFrame();
+        cthd.setLocationRelativeTo(null);
+        cthd.setVisible(true); 
+    }//GEN-LAST:event_btnCTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblQLHD;

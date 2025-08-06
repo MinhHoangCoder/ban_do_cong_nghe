@@ -32,30 +32,30 @@ public class HomeJFrame extends javax.swing.JFrame {
         txtWELCOME.setText("Hello, " + me.getTenNV());
     }
     
-    private void switchPage(Pages page){
-        JPanel panelToShow = null;
-        switch (page) {
-            case ANHBIA:
-                panelToShow = new AnhBiaJPanel();
-                break;
-            case QLHD:
-                panelToShow = new QuanLyBanHangJPanel();
-                break;
-            case QLKH:
-                panelToShow = new QuanLyKhachHangJPanel();
-                break;
-            case QLNV:
-                panelToShow = new QuanLyNhanVienJPanel();
-                break;
-            case QLSP:
-                panelToShow = new QuanLySanPhamJPanel();
-                break; 
-            case LOGIN:
-                panelToShow = new AnhBiaJPanel();
-                hideButton();
-                break;
-        }
-    }
+//    private void switchPage(Pages page){
+//        JPanel panelToShow = null;
+//        switch (page) {
+//            case ANHBIA:
+//                panelToShow = new AnhBiaJPanel();
+//                break;
+//            case QLBH:
+//                panelToShow = new QuanLyBanHangJPanel();
+//                break;
+//            case QLKH:
+//                panelToShow = new QuanLyKhachHangJPanel();
+//                break;
+//            case QLNV:
+//                panelToShow = new QuanLyNhanVienJPanel();
+//                break;
+//            case QLSP:
+//                panelToShow = new QuanLySanPhamJPanel();
+//                break; 
+//            case LOGIN:
+//                panelToShow = new AnhBiaJPanel();
+//                hideButton();
+//                break;
+//        }
+//    }
 
     private void showPanel(JPanel panel) {
         pnlMain.removeAll();

@@ -11,7 +11,7 @@ package view;
 public enum Pages {
     HOME,
     ANHBIA,
-    CTBH,
+    QLBH,
     QLDM,
     QLHD,
     QLKH,

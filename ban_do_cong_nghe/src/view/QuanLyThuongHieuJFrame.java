@@ -190,6 +190,11 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
 
         btnQUAYLAI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Left.png"))); // NOI18N
         btnQUAYLAI.setText("Quay Lại");
+        btnQUAYLAI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQUAYLAIActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -290,6 +295,10 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
             txtTENTH.setText(tblTHUONGHIEU.getValueAt(sr, 1).toString());
         }
     }//GEN-LAST:event_tblTHUONGHIEUMouseClicked
+
+    private void btnQUAYLAIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQUAYLAIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQUAYLAIActionPerformed
 
     /**
      * @param args the command line arguments
