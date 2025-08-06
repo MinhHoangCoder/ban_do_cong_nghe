@@ -181,6 +181,7 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
 
         cbTRANGTHAI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        btnXOA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Delete.png"))); // NOI18N
         btnXOA.setText("Xóa");
         btnXOA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +189,7 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSUA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Gear.png"))); // NOI18N
         btnSUA.setText("Sửa");
         btnSUA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +197,7 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnTHEM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHEM.setText("Thêm");
         btnTHEM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,6 +212,7 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
 
         cbTENTH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        btnDANHMUC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnDANHMUC.setText("Thêm Danh Mục");
         btnDANHMUC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +220,7 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnTHUONGHIEU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHUONGHIEU.setText("Thêm Thương Hiệu");
         btnTHUONGHIEU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,7 +312,7 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
                             .addComponent(txtTENSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
                             .addComponent(txtMOTA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnXOA)
                     .addComponent(btnSUA)

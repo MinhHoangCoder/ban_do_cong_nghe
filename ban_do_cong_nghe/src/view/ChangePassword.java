@@ -53,6 +53,7 @@ public class ChangePassword extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         jLabel3.setText(" Mật Khẩu Mới");
 
+        btnDOIMK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Computer.png"))); // NOI18N
         btnDOIMK.setText("Đổi Mật Khẩu");
         btnDOIMK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +61,7 @@ public class ChangePassword extends javax.swing.JFrame {
             }
         });
 
+        btnQUAYLAI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Left.png"))); // NOI18N
         btnQUAYLAI.setText("Quay Lại");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
@@ -106,7 +108,7 @@ public class ChangePassword extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtXNMKMOI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDOIMK)
                     .addComponent(btnQUAYLAI))

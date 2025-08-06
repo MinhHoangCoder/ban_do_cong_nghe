@@ -102,7 +102,7 @@
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtSDT" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnXoa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSua" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -220,6 +220,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnThem">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
       </Properties>
       <Events>
@@ -228,6 +231,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnXoa">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Delete.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
       </Properties>
       <Events>
@@ -236,6 +242,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSua">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Gear.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
       </Properties>
       <Events>

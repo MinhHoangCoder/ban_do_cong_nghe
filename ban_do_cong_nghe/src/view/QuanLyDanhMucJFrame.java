@@ -127,6 +127,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Tên Danh Mục");
 
+        btnXOA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Delete.png"))); // NOI18N
         btnXOA.setText("Xóa");
         btnXOA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +135,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSUA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Gear.png"))); // NOI18N
         btnSUA.setText("Sửa");
         btnSUA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +143,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnTHEM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHEM.setText("Thêm");
         btnTHEM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +153,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
 
         txtMADM.setEditable(false);
 
+        btnQUAYLAI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Left.png"))); // NOI18N
         btnQUAYLAI.setText("Quay Lại");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,7 +201,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtTENDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnXOA)
                     .addComponent(btnSUA)

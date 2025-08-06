@@ -34,6 +34,10 @@
                   <Component id="btnDANGXUAT" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtWELCOME" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnQLHD" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlMain" min="-2" pref="1050" max="-2" attributes="0"/>
@@ -47,7 +51,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtWELCOME" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="113" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="74" max="-2" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
               <Component id="btnQLKH" min="-2" pref="49" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLBH" min="-2" pref="53" max="-2" attributes="0"/>
@@ -85,6 +91,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnQLKH">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Clien list.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Kh&#xe1;ch H&#xe0;ng"/>
       </Properties>
       <Events>
@@ -93,6 +102,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLBH">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Gift.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; B&#xe1;n H&#xe0;ng"/>
       </Properties>
       <Events>
@@ -101,6 +113,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLSP">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Payment.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; S&#x1ea3;n Ph&#x1ea9;m"/>
       </Properties>
       <Events>
@@ -109,6 +124,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLNV">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/User group.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Nh&#xe2;n Vi&#xea;n"/>
       </Properties>
       <Events>
@@ -117,6 +135,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDOIMATKHAU">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Computer.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i M&#x1ead;t Kh&#x1ea9;u"/>
       </Properties>
       <Events>
@@ -125,6 +146,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDANGXUAT">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Log out.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng Xu&#x1ea5;t"/>
       </Properties>
       <Events>
@@ -135,11 +159,21 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQLHD">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/Document.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; H&#xf3;a &#x110;&#x1a1;n"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQLHDActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/icons/logol.png"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
