@@ -147,11 +147,12 @@ public class QLHDDAO {
         return null;
     }
     
-    public void insertKHIntoHD(int maKH){
-        String sql = "insert into QLHD (maKH) values (?)";
+    public void insertKHIntoHD(int maKH, int maHD){
+        String sql = "update QLHD set maKH = ? where maHD = ?";
         try(Connection con = ConnectDB.getConnect();
             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, maKH);
+            ps.setInt(2, maHD);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

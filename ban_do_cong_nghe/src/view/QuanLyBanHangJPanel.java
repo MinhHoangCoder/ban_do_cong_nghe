@@ -641,7 +641,6 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
         txtNV.setText(String.valueOf(getKeyFromValue(tnvmap, hoaDon.getMaNV())));
         txtSOLUONGSP.setText(String.valueOf(cthdDao.getTotalItemsByMaHD(maHoaDon)));
         txtTONGTIEN.setText(String.valueOf(cthdDao.getTotalMoneyByMaHD(maHoaDon)));
-        System.out.println(cthdDao.getTotalMoneyByMaHD(maHoaDon));
 
         this.fillCTHDTable(maHoaDon);
     }//GEN-LAST:event_tblHoaDonMouseClicked
@@ -698,16 +697,20 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
     private void btnTHEMKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMKHActionPerformed
         // TODO add your handling code here:
         if(rowKH == -1 || txtTENKH.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Bạn chưa chọn khách hàng để thêm vào hóa đơn");    
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn khách hàng để thêm vào hóa đơn");
+            return;
         } else {
             int maHoaDon = Integer.parseInt(tblHoaDon.getValueAt(this.rowHoaDon, 0).toString());
             QLHDENTITY hoaDon = hoaDonDao.getOneHD(maHoaDon);
             khmap = khDao.getMAVATENKH();
             String tenKH = txtTENKH.getText().trim();
             if(hoaDon.getMaKH() == 0){
-                hoaDonDao.insertKHIntoHD(khmap.get(tenKH));
+                hoaDonDao.insertKHIntoHD(khmap.get(tenKH), maHoaDon);
                 JOptionPane.showMessageDialog(this, "Thêm khách hàng vào hóa đơn thành công!");
                 fillHoaDonTable();
+            } else {
+                JOptionPane.showMessageDialog(this, "Hóa đơn này đã có khách hàng!");
+                return;
             }
         }
     }//GEN-LAST:event_btnTHEMKHActionPerformed
@@ -735,27 +738,36 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int maHD = Integer.parseInt(txtMAHD.getText().trim());
         int confirm = JOptionPane.showConfirmDialog(btnTHANHTOAN, "Xác nhận thanh toán hóa đơn?");
-        System.out.println("Debug - rowHoaDon: " + rowHoaDon);
-        System.out.println("Debug - txtMAHD: '" + txtMAHD.getText().trim() + "'");
+        float tongTien = Float.parseFloat(txtTONGTIEN.getText().trim());
+        int soLuongSP = Integer.parseInt(txtSOLUONGSP.getText().trim());
+        if(tongTien == 0){
+            JOptionPane.showMessageDialog(this, "Tổng tiền không thể bằng 0!");
+            return;
+        }
         if(rowHoaDon == -1 || txtMAHD.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Vui lòng chọn hóa đơn để thanh toán");
         } else {
             cthdLst = cthdDao.getAllByMaHD(maHD);
-            if(cthdLst.isEmpty() && txtTONGTIEN.getText().trim().isEmpty()){
+            if(cthdLst.isEmpty()){
                 JOptionPane.showMessageDialog(this, "Hóa đơn này không có sản phẩm để thanh toán!");
             } else {
-                if(txtSOLUONGSP.getText().trim().isEmpty() || txtTONGTIEN.getText().trim().isEmpty()){
+                if(txtSOLUONGSP.getText().trim().isEmpty() || soLuongSP == 0){
                     JOptionPane.showMessageDialog(this, "Hóa đơn này chưa thanh toán được!");
                 } else {
-                    if(confirm == JOptionPane.YES_OPTION){
-                        hoaDonDao.thanhToanHD(maHD);
-                        String ghiChu = txtGHICHU.getText().isBlank() ? "Không có ghi chú cho hóa đơn này" : txtGHICHU.getText().trim();
-                        float tongTienHD = Float.parseFloat(txtTONGTIEN.getText().trim());
-                        int hTTT = htttmap.get((String) cbHTTT.getSelectedItem());
-                        QLHDENTITY hd = new QLHDENTITY(maHD, hTTT, tongTienHD, ghiChu);
-                        JOptionPane.showMessageDialog(this, "Thanh toán thành công!");
-                        this.fillHoaDonTable();
-                        refreshTF();
+                    QLHDENTITY hoaDon = hoaDonDao.getOneHD(maHD);
+                    if(hoaDon.getMaKH() == 0){
+                        JOptionPane.showMessageDialog(this, "Hóa Đơn này chưa có khách hàng để thanh toán!");   
+                    } else {
+                        if(confirm == JOptionPane.YES_OPTION){
+                            hoaDonDao.thanhToanHD(maHD);
+                            String ghiChu = txtGHICHU.getText().isBlank() ? "Không có ghi chú cho hóa đơn này" : txtGHICHU.getText().trim();
+                            float tongTienHD = Float.parseFloat(txtTONGTIEN.getText().trim());
+                            int hTTT = htttmap.get((String) cbHTTT.getSelectedItem());
+                            QLHDENTITY hd = new QLHDENTITY(maHD, hTTT, tongTienHD, ghiChu);
+                            JOptionPane.showMessageDialog(this, "Thanh toán thành công!");
+                            this.fillHoaDonTable();
+                            refreshTF();
+                        }
                     }
                 }
             }
