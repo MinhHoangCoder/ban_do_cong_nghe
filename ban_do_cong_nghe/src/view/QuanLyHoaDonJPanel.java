@@ -5,9 +5,11 @@
 package view;
 
 import dao.QLHDDAO;
+import entity.QLCTHDENTITY;
 import entity.QLHDENTITY;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,11 +18,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
-        private int rowHD = -1;
-        private Map<String, Integer> hdmap = new HashMap<>();
-        QLHDDAO hddao = new QLHDDAO();
-        
-            private String getKeyFromValue(Map<String, Integer> map, int value) {
+    private int rowHD = -1;
+    private Map<String, Integer> hdmap = new HashMap<>();
+    QLHDDAO hddao = new QLHDDAO();
+    private Map<String, Integer> tthdmap = new HashMap<>();
+
+    private String getKeyFromValue(Map<String, Integer> map, int value) {
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             if (entry.getValue() == value) {
                 return entry.getKey();
@@ -28,6 +31,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         }
         return null;
     }
+
     /**
      * Creates new form QuanLyHoaDonJPanel
      */
@@ -35,8 +39,8 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         initComponents();
         fillTable();
     }
-    
-    public void fillTable(){
+
+    public void fillTable() {
         hdmap.put("Đang Xử Lý", 0);
         hdmap.put("Đã Thanh Toán", 1);
         hdmap.put("Hủy", 2);
@@ -44,8 +48,8 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (QLHDENTITY hoaDon : hddao.getAllHD()) {
             Object data[] = {
-                hoaDon.getMaHD(), 
-                hoaDon.getNgayLapHD(), 
+                hoaDon.getMaHD(),
+                hoaDon.getNgayLapHD(),
                 getKeyFromValue(hdmap, hoaDon.getTrangThaiHD())};
             model.addRow(data);
         }
@@ -87,6 +91,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblQLHD);
 
+        btnCT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Search.png"))); // NOI18N
         btnCT.setText("Chi Tiết");
         btnCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +108,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(402, 402, 402)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 341, Short.MAX_VALUE)
                         .addComponent(btnCT))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -130,10 +135,20 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
     private void btnCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCTActionPerformed
         // TODO add your handling code here:
-//        int maHD = Integer.parseInt(tblQLHD.getValueAt(rowHD, 0).toString());
-        CTHDJFrame cthd = new CTHDJFrame();
-        cthd.setLocationRelativeTo(null);
-        cthd.setVisible(true); 
+        int maHD = Integer.parseInt(tblQLHD.getValueAt(rowHD, 0).toString());
+        QLHDENTITY hde = hddao.getOneHD(maHD);
+        int trangThai = hde.getTrangThaiHD();
+        hdmap.put("Đang Xử Lý", 0);
+        hdmap.put("Đã Thanh Toán", 1);
+        hdmap.put("Hủy", 2);
+
+        if (trangThai == 0 || trangThai == 2) {
+            JOptionPane.showMessageDialog(this, "Hóa đơn chưa thanh toán thành công");
+        } else if (trangThai == 1) {
+            CTHDJFrame cthd = new CTHDJFrame(maHD);
+            cthd.setLocationRelativeTo(null);
+            cthd.setVisible(true);
+        }
     }//GEN-LAST:event_btnCTActionPerformed
 
 

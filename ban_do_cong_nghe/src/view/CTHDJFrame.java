@@ -4,17 +4,41 @@
  */
 package view;
 
+import dao.QLCTHDDAO;
+import entity.QLCTHDENTITY;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MSI USER
  */
 public class CTHDJFrame extends javax.swing.JFrame {
+    
+    int maHD;
+        public QLCTHDDAO cthdDao = new QLCTHDDAO();
 
     /**
      * Creates new form CTHDJFrame
      */
-    public CTHDJFrame() {
+    public CTHDJFrame(int maHD) {
+        this.maHD = maHD;
         initComponents();
+        fillCTHDTable(maHD);
+    }
+    
+        public void fillCTHDTable(int maHD) {
+        DefaultTableModel model = (DefaultTableModel) tblCT.getModel();
+        model.setRowCount(0);
+        for (QLCTHDENTITY cthd : cthdDao.getAllByMaHD(maHD)) {
+            Object data[] = {
+                cthd.getMaSP(), 
+                cthd.getTenSP(), 
+                cthd.getSoLuong(), 
+                cthd.getGia(),
+                cthd.getSoLuong() * cthd.getGia()};
+            model.addRow(data);
+        }
+        tblCT.setModel(model);
     }
 
     /**
@@ -28,7 +52,7 @@ public class CTHDJFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCT = new javax.swing.JTable();
         btnQL = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,19 +60,20 @@ public class CTHDJFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setText("Chi Tiết Hóa Đơn");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã Sản Phẩm", "Tên Sản Phẩm", "Số Lượng", "Giá", "Thành Tiền"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblCT);
 
+        btnQL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Left.png"))); // NOI18N
         btnQL.setText("Quay Lại");
         btnQL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +89,7 @@ public class CTHDJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 428, Short.MAX_VALUE)
+                        .addGap(0, 400, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(336, 336, 336)
                         .addComponent(btnQL))
@@ -123,7 +148,7 @@ public class CTHDJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CTHDJFrame().setVisible(true);
+                new CTHDJFrame(1).setVisible(true);
             }
         });
     }
@@ -132,6 +157,6 @@ public class CTHDJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnQL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblCT;
     // End of variables declaration//GEN-END:variables
 }
