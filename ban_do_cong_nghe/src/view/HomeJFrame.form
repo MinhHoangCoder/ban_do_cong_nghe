@@ -181,7 +181,7 @@
     <Component class="javax.swing.JButton" name="btnThongKe">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/icons/User group.png"/>
+          <Image iconType="3" name="/images/icons/Dollar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng K&#xea;"/>
       </Properties>

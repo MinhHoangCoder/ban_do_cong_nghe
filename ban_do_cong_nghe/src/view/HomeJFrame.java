@@ -154,7 +154,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/logol.png"))); // NOI18N
 
-        btnThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/User group.png"))); // NOI18N
+        btnThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Dollar.png"))); // NOI18N
         btnThongKe.setText("Thống Kê");
         btnThongKe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
