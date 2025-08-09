@@ -34,11 +34,10 @@
                   <Component id="btnDANGXUAT" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtWELCOME" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnQLHD" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="btnThongKe" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlMain" min="-2" pref="1050" max="-2" attributes="0"/>
@@ -54,7 +53,7 @@
               <Component id="txtWELCOME" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="74" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
               <Component id="btnQLKH" min="-2" pref="49" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLBH" min="-2" pref="53" max="-2" attributes="0"/>
@@ -64,9 +63,7 @@
               <Component id="btnQLSP" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnQLNV" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnThongKe" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
               <Component id="btnDOIMATKHAU" min="-2" pref="52" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnDANGXUAT" min="-2" pref="52" max="-2" attributes="0"/>
@@ -177,17 +174,6 @@
           <Image iconType="3" name="/images/icons/logol.png"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnThongKe">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/icons/User group.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng K&#xea;"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThongKeActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

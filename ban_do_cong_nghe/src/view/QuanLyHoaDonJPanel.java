@@ -133,7 +133,7 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 //        int maHD = Integer.parseInt(tblQLHD.getValueAt(rowHD, 0).toString());
         CTHDJFrame cthd = new CTHDJFrame();
         cthd.setLocationRelativeTo(null);
-        cthd.setVisible(true);
+        cthd.setVisible(true); 
     }//GEN-LAST:event_btnCTActionPerformed
 
 

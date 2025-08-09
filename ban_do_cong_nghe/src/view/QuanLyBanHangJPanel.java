@@ -668,20 +668,12 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                 int soLuong = 1;
                 int maHD = Integer.parseInt(txtMAHD.getText().trim());
                 if (cthdDao.checkExistSPInCTHD(maHD, maSP) == false) {
-                    if(sp.getSoLuongSP() == 1){
-                        JOptionPane.showMessageDialog(this, "Đã hết số lượng của sản phẩm này!");
-                    } else {
-                        QLCTHDENTITY cthd = new QLCTHDENTITY(maHD, sp.getMaSP(), soLuong, sp.getGiaSP(), sp.getTenSP());
-                        cthdDao.insertCTHD(cthd);
-                        sanPhamDao.updateQuantity(maSP);
-                    }
+                    QLCTHDENTITY cthd = new QLCTHDENTITY(maHD, sp.getMaSP(), soLuong, sp.getGiaSP(), sp.getTenSP());
+                    cthdDao.insertCTHD(cthd);
+                    sanPhamDao.updateQuantity(maSP);
                 } else {
-                    if(sp.getSoLuongSP() == 1){
-                        JOptionPane.showMessageDialog(this, "Đã hết số lượng của sản phẩm này!");
-                    } else {
-                        cthdDao.increaseQuantityCTHD(maHD, maSP);
-                        sanPhamDao.updateQuantity(maSP);
-                    }
+                    cthdDao.increaseQuantityCTHD(maHD, maSP);
+                    sanPhamDao.updateQuantity(maSP);
                 }
                 this.fillSanPhamTable();
                 this.fillCTHDTable(maHD);
@@ -782,7 +774,6 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                             QLHDENTITY hd = new QLHDENTITY(maHD, hTTT, tongTienHD, ghiChu);
                             JOptionPane.showMessageDialog(this, "Thanh toán thành công!");
                             this.fillHoaDonTable();
-                            this.fillCTHDTable(maHD);
                             refreshTF();
                         }
                     }
