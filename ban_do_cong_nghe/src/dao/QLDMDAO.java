@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -47,7 +47,7 @@ public class QLDMDAO {
     public void updateDM(QLDMENTITY dm){
         String sql = "UPDATE QLDM SET "
                     + "tenDM = ? "
-                    + "WHERE maTH = ?";
+                    + "WHERE maDM = ?";
         try(Connection con = ConnectDB.getConnect();
             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, dm.getTenDM());

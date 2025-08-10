@@ -209,6 +209,11 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
         jLabel9.setText("QUẢN LÝ SẢN PHẨM");
 
         cbTENDM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTENDM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTENDMActionPerformed(evt);
+            }
+        });
 
         cbTENTH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -397,6 +402,10 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
             txtMOTA.setText(tblSANPHAM.getValueAt(sr, 7).toString());
         }
     }//GEN-LAST:event_tblSANPHAMMouseClicked
+
+    private void cbTENDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTENDMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTENDMActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

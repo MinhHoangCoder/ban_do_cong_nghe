@@ -24,20 +24,20 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
     QLNVDAO nvdao = new QLNVDAO();
     private Map<String, Integer> qmap = new HashMap<>();
     private String getKeyFromValue(Map<String, Integer> map, int value){
-            for (Map.Entry<String, Integer> entry : map.entrySet()) {
-                if(entry.getValue() == value){
-                    return entry.getKey();
-                }
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if(entry.getValue() == value){
+                return entry.getKey();
             }
-            return null;
         }
+        return null;
+    }
     /**
      * Creates new form QuanLyNhanVienJPanel
      */
     public QuanLyNhanVienJPanel() {
         initComponents();
-        fillTable();
         fillCB();
+        fillTable();
         tblQLNV.getColumnModel().getColumn(6).setCellRenderer(new PasswordRenderer());
     }
     
@@ -56,7 +56,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblQLNV.getModel();
         model.setRowCount(0);
         for (QLNVENTITY nv : nvdao.getAllNV()) {
-            String tenQ = getKeyFromValue(qmap, nv.getQuyen());
+            System.out.println(nv.getQuyen());
             Object data[] = {
                 nv.getMaNV(),
                 nv.getTenNV(),
@@ -65,7 +65,7 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
                 nv.getEmail(),
                 nv.getDiaChi(),
                 nv.getMatKhau(),
-                tenQ
+                getKeyFromValue(qmap, nv.getQuyen())
             };
             model.addRow(data);
         }

@@ -56,7 +56,7 @@ public class QLNVDAO {
                 
                 QLNVENTITY nv = new QLNVENTITY(
                         rs.getInt("maNV"), 
-                        rs.getInt("quyen"), 
+                        rs.getInt("quyen"),
                         rs.getString("tenNV"), 
                         rs.getString("soDienThoai"), 
                         rs.getString("email"), 

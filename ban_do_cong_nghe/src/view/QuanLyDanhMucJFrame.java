@@ -68,7 +68,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
     }
     
     public QLDMENTITY getDM(){
-        String tenDM = txtTENDM.getText();
+        String tenDM = txtTENDM.getText().trim();
         
         int maDM = 0;
         if (!txtMADM.getText().isBlank()) {
@@ -216,33 +216,45 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thêm danh mục này không?");
-        if(confirm == JOptionPane.YES_OPTION){
-            dmdao.insertDM(this.getDM());
-            this.fillTB();
-            JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
+        if (txtTENDM.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Bạn chưa nhập dữ liệu để thêm!");
+        } else {
+            if(confirm == JOptionPane.YES_OPTION){
+                dmdao.insertDM(this.getDM());
+                this.fillTB();
+                JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
+            }
         }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn sửa danh mục này không?");
-        if(confirm == JOptionPane.YES_OPTION){
-            dmdao.updateDM(this.getDM());
-            this.fillTB();
-            JOptionPane.showMessageDialog(rootPane, "Sửa thành công!");
+        if (txtTENDM.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Bạn chưa nhập dữ liệu để sửa!");
+        } else {
+            if(confirm == JOptionPane.YES_OPTION){
+                dmdao.updateDM(this.getDM());
+                this.fillTB();
+                JOptionPane.showMessageDialog(rootPane, "Sửa thành công!");
+            }
         }
     }//GEN-LAST:event_btnSUAActionPerformed
 
     private void btnXOAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOAActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa danh mục này không?");
-        if(confirm == JOptionPane.YES_OPTION){
-            int maDM = Integer.parseInt(txtMADM.getText());
-            dmdao.deleteDM(maDM);
-            txtMADM.setText(" ");
-            txtTENDM.setText(" ");
-            this.fillTB();
-            JOptionPane.showMessageDialog(rootPane, "Xóa thành công!");
+        if(txtMADM.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Bạn chưa có đủ dữ liệu để xóa!");
+        } else {
+            if(confirm == JOptionPane.YES_OPTION){
+                int maDM = Integer.parseInt(txtMADM.getText().trim());
+                dmdao.deleteDM(maDM);
+                txtMADM.setText(" ");
+                txtTENDM.setText(" ");
+                this.fillTB();
+                JOptionPane.showMessageDialog(rootPane, "Xóa thành công!");
+            }
         }
     }//GEN-LAST:event_btnXOAActionPerformed
 
