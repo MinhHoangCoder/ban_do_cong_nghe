@@ -40,6 +40,8 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         fillCB();
         fillTable();
         tblQLNV.getColumnModel().getColumn(6).setCellRenderer(new PasswordRenderer());
+        int maQ = qmap.get(tblQLNV.getValueAt(0, 7).toString());
+        System.out.println(maQ);
     }
     
     public void fillCB(){
@@ -363,19 +365,24 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         if(rowNV == -1){
             JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để xóa");
         } else {
-            int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa nhân viên này không ?");
-            if(confirm == JOptionPane.YES_OPTION){
-                int maNV = Integer.parseInt(txtMANV.getText().trim());
-                nvdao.deleteNV(maNV);
-                txtMATKHAU.setText(" ");
-                txtDIACHI.setText(" ");
-                txtEMAIL.setText(" ");
-                txtMANV.setText(" ");
-                txtNGAYSINH.setText(" ");
-                txtSDT.setText(" ");
-                txtTENNV.setText(" ");
-                fillTable();
-                JOptionPane.showMessageDialog(this, "Xóa thành công!");
+            int maQ = qmap.get(tblQLNV.getValueAt(rowNV, 7).toString());
+            if(maQ == 1){
+                JOptionPane.showMessageDialog(this, "Bạn không thể xóa tài khoản Admin!");
+            } else {
+                int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa nhân viên này không ?");
+                if(confirm == JOptionPane.YES_OPTION){
+                    int maNV = Integer.parseInt(txtMANV.getText().trim());
+                    nvdao.deleteNV(maNV);
+                    txtMATKHAU.setText(" ");
+                    txtDIACHI.setText(" ");
+                    txtEMAIL.setText(" ");
+                    txtMANV.setText(" ");
+                    txtNGAYSINH.setText(" ");
+                    txtSDT.setText(" ");
+                    txtTENNV.setText(" ");
+                    fillTable();
+                    JOptionPane.showMessageDialog(this, "Xóa thành công!");
+                }
             }
         }
     }//GEN-LAST:event_btnXOAActionPerformed
