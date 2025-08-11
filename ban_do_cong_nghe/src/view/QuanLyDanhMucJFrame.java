@@ -216,16 +216,18 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
 
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
+        if (txtTENDM.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin danh mục");
+            return;
+        }
+        
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thêm danh mục này không?");
-        if (rowDM == -1){
-            JOptionPane.showMessageDialog(rootPane, "Bạn chưa nhập dữ liệu để thêm!");
-        } else {
             if(confirm == JOptionPane.YES_OPTION){
                 dmdao.insertDM(this.getDM());
                 this.fillTB();
                 JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
             }
-        }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed

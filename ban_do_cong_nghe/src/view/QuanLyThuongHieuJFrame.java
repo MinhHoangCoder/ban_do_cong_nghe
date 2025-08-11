@@ -251,16 +251,17 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
 
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
-        if(rowTH == -1){
-            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
-        } else {
+        if (txtTENTH.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin nhân viên");
+            return;
+        }
             int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thêm thương hiệu này không?");
             if(confirm == JOptionPane.YES_OPTION){
                 thdao.insertTH(this.getTH());
                 this.fillTB();
                 JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
             }
-        }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed

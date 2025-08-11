@@ -317,16 +317,22 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
 
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
-        if(rowNV == -1){
-            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
-        } else {
+        if (txtTENNV.getText().trim().isEmpty() ||
+            txtNGAYSINH.getText().trim().isEmpty() ||
+            txtSDT.getText().trim().isEmpty() ||
+            txtEMAIL.getText().trim().isEmpty() ||
+            txtDIACHI.getText().trim().isEmpty() ||
+            txtMATKHAU.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin nhân viên");
+            return;
+        }
             int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm nhân viên này không ?");
             if(confirm == JOptionPane.YES_OPTION){
                 nvdao.insertNV(getNV());
                 fillTable();
                 JOptionPane.showMessageDialog(this, "Thêm thành công!");
             }
-        }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void tblQLNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQLNVMouseClicked

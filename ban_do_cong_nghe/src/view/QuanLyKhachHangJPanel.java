@@ -42,7 +42,7 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
         String email = txtEmail.getText();
         String diaChi = txtDiaChi.getText();
         int maKH = 0;
-        if(!txtMaKH.getText().isBlank()){
+        if (!txtMaKH.getText().isBlank()) {
             maKH = Integer.parseInt(txtMaKH.getText());
         }
         return new QLKHENTITY(maKH, tenKH, sdt, email, diaChi);
@@ -221,23 +221,25 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if(rowKH != -1){
+        if (txtTenKH.getText().trim().isEmpty() ||
+            txtSDT.getText().trim().isEmpty() ||
+            txtEmail.getText().trim().isEmpty() ||
+            txtDiaChi.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin khách hàng");
+            return;
+        }
             int confirm = JOptionPane.showConfirmDialog(this, "Ban co chac muon them khong");
             if (confirm == JOptionPane.YES_OPTION) {
                 this.khdao.insertKH(this.getKH());
                 fillTable();
                 JOptionPane.showMessageDialog(this, "Them thanh cong");
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
-        }
-        
-        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        if(rowKH != -1){
+        if (rowKH != -1) {
             int confirm = JOptionPane.showConfirmDialog(this, "Ban co chac muon sua khong");
             if (confirm == JOptionPane.YES_OPTION) {
                 this.khdao.updateKH(this.getKH());
@@ -251,7 +253,7 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        if(rowKH != -1){
+        if (rowKH != -1) {
             int confirm = JOptionPane.showConfirmDialog(this, "Ban co chac muon xoa khong");
             if (confirm == JOptionPane.YES_OPTION) {
                 int maKH = (int) tblKhachHang.getValueAt(rowKH, 0);

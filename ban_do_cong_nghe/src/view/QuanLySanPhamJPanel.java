@@ -332,16 +332,20 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
 
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
-        if(rowSP == -1){
-            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
-        } else {
+        if (txtTENSP.getText().trim().isEmpty() ||
+            txtGIA.getText().trim().isEmpty() ||
+            txtSOLUONG.getText().trim().isEmpty() ||
+            txtMOTA.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin sản phẩm");
+            return;
+        }
             int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm sản phẩm này không?");
             if(confirm == JOptionPane.YES_OPTION){
                 spdao.insertSP(this.getSP());
                 this.fillTB();
                 JOptionPane.showMessageDialog(this, "Thêm thành công!");
             }
-        }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
