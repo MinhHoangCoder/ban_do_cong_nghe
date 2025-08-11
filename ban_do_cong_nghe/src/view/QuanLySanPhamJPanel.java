@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLySanPhamJPanel extends javax.swing.JPanel {
 
+    private int rowSP = -1;
     private QLSPDAO spdao = new QLSPDAO();
     private Map<String, Integer> thmap;
     private Map<String, Integer> dmmap;
@@ -331,43 +332,50 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
 
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn thêm sản phẩm này không?");
-        if(confirm == JOptionPane.YES_OPTION){
-            spdao.insertSP(this.getSP());
-            this.fillTB();
-            JOptionPane.showMessageDialog(btnTHEM, "Thêm thành công!");
+        if(rowSP == -1){
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm sản phẩm này không?");
+            if(confirm == JOptionPane.YES_OPTION){
+                spdao.insertSP(this.getSP());
+                this.fillTB();
+                JOptionPane.showMessageDialog(this, "Thêm thành công!");
+            }
         }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
         // TODO add your handling code here:
-        int sr = tblSANPHAM.getSelectedRow();
-        if(sr > 1){
-            int confirm = JOptionPane.showConfirmDialog(btnSUA, "Bạn có muốn sửa sản phẩm này không?");
+        if(rowSP != -1){
+            int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn sửa sản phẩm này không?");
             if(confirm == JOptionPane.YES_OPTION){
                 spdao.updateSP(this.getSP());
                 this.fillTB();
-                JOptionPane.showMessageDialog(btnSUA, "Sửa thành công!");
+                JOptionPane.showMessageDialog(this, "Sửa thành công!");
             }
         } else {
-            JOptionPane.showMessageDialog(btnSUA, "Bạn phải chọn một dòng dữ liệu trong bảng để sửa");
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để sửa");
         }
     }//GEN-LAST:event_btnSUAActionPerformed
 
     private void btnXOAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOAActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(btnXOA, "Bạn có muốn xóa sản phẩm này không?");
-        if(confirm == JOptionPane.YES_OPTION){
-            int sr = tblSANPHAM.getSelectedRow();
-            int maSP = Integer.parseInt(tblSANPHAM.getValueAt(sr, 0).toString());
-            spdao.deleteSP(maSP);
-            txtMASP.setText(" ");
-            txtGIA.setText(" ");
-            txtMOTA.setText(" ");
-            txtSOLUONG.setText(" ");
-            txtTENSP.setText(" ");
-            this.fillTB();
-            JOptionPane.showMessageDialog(btnXOA, "Xóa thành công!");
+        if(rowSP == -1){
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để xóa");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa sản phẩm này không?");
+            if(confirm == JOptionPane.YES_OPTION){
+                int sr = tblSANPHAM.getSelectedRow();
+                int maSP = Integer.parseInt(tblSANPHAM.getValueAt(sr, 0).toString());
+                spdao.deleteSP(maSP);
+                txtMASP.setText(" ");
+                txtGIA.setText(" ");
+                txtMOTA.setText(" ");
+                txtSOLUONG.setText(" ");
+                txtTENSP.setText(" ");
+                this.fillTB();
+                JOptionPane.showMessageDialog(this, "Xóa thành công!");
+            }
         }
     }//GEN-LAST:event_btnXOAActionPerformed
 
@@ -389,18 +397,16 @@ public class QuanLySanPhamJPanel extends javax.swing.JPanel {
 
     private void tblSANPHAMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSANPHAMMouseClicked
         // TODO add your handling code here:
-        int sr = tblSANPHAM.getSelectedRow();
+        rowSP = tblSANPHAM.getSelectedRow();
 
-        if (sr >= 0) {
-            txtMASP.setText(tblSANPHAM.getValueAt(sr, 0).toString());
-            cbTENDM.setSelectedItem(tblSANPHAM.getValueAt(sr, 1).toString());
-            cbTENTH.setSelectedItem(tblSANPHAM.getValueAt(sr, 2).toString());
-            txtTENSP.setText(tblSANPHAM.getValueAt(sr, 3).toString());
-            txtGIA.setText(tblSANPHAM.getValueAt(sr, 4).toString());
-            txtSOLUONG.setText(tblSANPHAM.getValueAt(sr, 5).toString());
-            cbTRANGTHAI.setSelectedItem(tblSANPHAM.getValueAt(sr, 6).toString());
-            txtMOTA.setText(tblSANPHAM.getValueAt(sr, 7).toString());
-        }
+        txtMASP.setText(tblSANPHAM.getValueAt(rowSP, 0).toString());
+        cbTENDM.setSelectedItem(tblSANPHAM.getValueAt(rowSP, 1).toString());
+        cbTENTH.setSelectedItem(tblSANPHAM.getValueAt(rowSP, 2).toString());
+        txtTENSP.setText(tblSANPHAM.getValueAt(rowSP, 3).toString());
+        txtGIA.setText(tblSANPHAM.getValueAt(rowSP, 4).toString());
+        txtSOLUONG.setText(tblSANPHAM.getValueAt(rowSP, 5).toString());
+        cbTRANGTHAI.setSelectedItem(tblSANPHAM.getValueAt(rowSP, 6).toString());
+        txtMOTA.setText(tblSANPHAM.getValueAt(rowSP, 7).toString());
     }//GEN-LAST:event_tblSANPHAMMouseClicked
 
     private void cbTENDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTENDMActionPerformed

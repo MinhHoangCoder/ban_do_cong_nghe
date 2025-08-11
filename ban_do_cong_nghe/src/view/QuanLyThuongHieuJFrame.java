@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
  */
 public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
 
+    private int rowTH = -1;
     private String previousPage;
     QLTHDAO thdao = new QLTHDAO();
     /**
@@ -250,18 +251,21 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
 
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thêm thương hiệu này không?");
-        if(confirm == JOptionPane.YES_OPTION){
-            thdao.insertTH(this.getTH());
-            this.fillTB();
-            JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
+        if(rowTH == -1){
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thêm thương hiệu này không?");
+            if(confirm == JOptionPane.YES_OPTION){
+                thdao.insertTH(this.getTH());
+                this.fillTB();
+                JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
+            }
         }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
         // TODO add your handling code here:
-        int sr = tblTHUONGHIEU.getSelectedRow();
-        if (sr > 0){
+        if (rowTH != -1){
             int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn sửa thương hiệu này không?");
             if(confirm == JOptionPane.YES_OPTION){
                 thdao.updateTH(this.getTH());
@@ -275,25 +279,27 @@ public class QuanLyThuongHieuJFrame extends javax.swing.JFrame {
 
     private void btnXOAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOAActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa thương hiệu này không?");
-        if(confirm == JOptionPane.YES_OPTION){
-            int maTH = Integer.parseInt(txtMATH.getText());
-            thdao.deleteTH(maTH);
-            txtMATH.setText(" ");
-            txtTENTH.setText(" ");
-            this.fillTB();
-            JOptionPane.showMessageDialog(rootPane, "Xóa thành công!");
+        if(rowTH == -1){
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để xóa");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa thương hiệu này không?");
+            if(confirm == JOptionPane.YES_OPTION){
+                int maTH = Integer.parseInt(txtMATH.getText());
+                thdao.deleteTH(maTH);
+                txtMATH.setText(" ");
+                txtTENTH.setText(" ");
+                this.fillTB();
+                JOptionPane.showMessageDialog(rootPane, "Xóa thành công!");
+            }
         }
     }//GEN-LAST:event_btnXOAActionPerformed
 
     private void tblTHUONGHIEUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTHUONGHIEUMouseClicked
         // TODO add your handling code here:
-        int sr = tblTHUONGHIEU.getSelectedRow();
+        rowTH = tblTHUONGHIEU.getSelectedRow();
 
-        if (sr >= 0) {
-            txtMATH.setText(tblTHUONGHIEU.getValueAt(sr, 0).toString());
-            txtTENTH.setText(tblTHUONGHIEU.getValueAt(sr, 1).toString());
-        }
+        txtMATH.setText(tblTHUONGHIEU.getValueAt(rowTH, 0).toString());
+        txtTENTH.setText(tblTHUONGHIEU.getValueAt(rowTH, 1).toString());
     }//GEN-LAST:event_tblTHUONGHIEUMouseClicked
 
     private void btnQUAYLAIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQUAYLAIActionPerformed

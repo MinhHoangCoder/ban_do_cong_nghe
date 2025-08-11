@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
 
+    private int rowNV = -1;
     QLNVDAO nvdao = new QLNVDAO();
     private Map<String, Integer> qmap = new HashMap<>();
     private String getKeyFromValue(Map<String, Integer> map, int value){
@@ -317,58 +318,65 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
 
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn thêm nhân viên này không ?");
-        if(confirm == JOptionPane.YES_OPTION){
-            nvdao.insertNV(getNV());
-            fillTable();
-            JOptionPane.showMessageDialog(btnTHEM, "Thêm thành công!");
+        if(rowNV == -1){
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm nhân viên này không ?");
+            if(confirm == JOptionPane.YES_OPTION){
+                nvdao.insertNV(getNV());
+                fillTable();
+                JOptionPane.showMessageDialog(this, "Thêm thành công!");
+            }
         }
     }//GEN-LAST:event_btnTHEMActionPerformed
 
     private void tblQLNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQLNVMouseClicked
         // TODO add your handling code here:
-        int sr = tblQLNV.getSelectedRow();
+        rowNV = tblQLNV.getSelectedRow();
         
-        txtMANV.setText(String.valueOf(tblQLNV.getValueAt(sr, 0).toString()));
-        txtTENNV.setText(String.valueOf(tblQLNV.getValueAt(sr, 1).toString()));
-        txtNGAYSINH.setText(String.valueOf(tblQLNV.getValueAt(sr, 2).toString()));
-        txtSDT.setText(String.valueOf(tblQLNV.getValueAt(sr, 3).toString()));
-        txtEMAIL.setText(String.valueOf(tblQLNV.getValueAt(sr, 4).toString()));
-        txtDIACHI.setText(String.valueOf(tblQLNV.getValueAt(sr, 5).toString()));
-        txtMATKHAU.setText(String.valueOf(tblQLNV.getValueAt(sr, 6).toString()));
-        cbQUYEN.setSelectedItem(tblQLNV.getValueAt(sr, 7).toString());
+        txtMANV.setText(String.valueOf(tblQLNV.getValueAt(rowNV, 0).toString()));
+        txtTENNV.setText(String.valueOf(tblQLNV.getValueAt(rowNV, 1).toString()));
+        txtNGAYSINH.setText(String.valueOf(tblQLNV.getValueAt(rowNV, 2).toString()));
+        txtSDT.setText(String.valueOf(tblQLNV.getValueAt(rowNV, 3).toString()));
+        txtEMAIL.setText(String.valueOf(tblQLNV.getValueAt(rowNV, 4).toString()));
+        txtDIACHI.setText(String.valueOf(tblQLNV.getValueAt(rowNV, 5).toString()));
+        txtMATKHAU.setText(String.valueOf(tblQLNV.getValueAt(rowNV, 6).toString()));
+        cbQUYEN.setSelectedItem(tblQLNV.getValueAt(rowNV, 7).toString());
     }//GEN-LAST:event_tblQLNVMouseClicked
 
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
         // TODO add your handling code here:
-        int sr = tblQLNV.getSelectedRow();
-        if(sr > 1){
-            int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn sửa nhân viên này không ?");
+        if(rowNV != -1){
+            int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn sửa nhân viên này không ?");
             if(confirm == JOptionPane.YES_OPTION){
                 nvdao.updateNV(this.getNV());
                 fillTable();
-                JOptionPane.showMessageDialog(btnTHEM, "Sửa thành công!");
+                JOptionPane.showMessageDialog(this, "Sửa thành công!");
             }
         } else{
-            JOptionPane.showMessageDialog(btnSUA, "Bạn phải chọn một dòng dữ liệu trong bảng để sửa");
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để sửa");
         }
     }//GEN-LAST:event_btnSUAActionPerformed
 
     private void btnXOAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOAActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(btnTHEM, "Bạn có muốn xóa nhân viên này không ?");
-        if(confirm == JOptionPane.YES_OPTION){
-            int maNV = Integer.parseInt(txtMANV.getText().trim());
-            nvdao.deleteNV(maNV);
-            txtMATKHAU.setText(" ");
-            txtDIACHI.setText(" ");
-            txtEMAIL.setText(" ");
-            txtMANV.setText(" ");
-            txtNGAYSINH.setText(" ");
-            txtSDT.setText(" ");
-            txtTENNV.setText(" ");
-            fillTable();
-            JOptionPane.showMessageDialog(btnTHEM, "Xóa thành công!");
+        if(rowNV == -1){
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để xóa");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa nhân viên này không ?");
+            if(confirm == JOptionPane.YES_OPTION){
+                int maNV = Integer.parseInt(txtMANV.getText().trim());
+                nvdao.deleteNV(maNV);
+                txtMATKHAU.setText(" ");
+                txtDIACHI.setText(" ");
+                txtEMAIL.setText(" ");
+                txtMANV.setText(" ");
+                txtNGAYSINH.setText(" ");
+                txtSDT.setText(" ");
+                txtTENNV.setText(" ");
+                fillTable();
+                JOptionPane.showMessageDialog(this, "Xóa thành công!");
+            }
         }
     }//GEN-LAST:event_btnXOAActionPerformed
 

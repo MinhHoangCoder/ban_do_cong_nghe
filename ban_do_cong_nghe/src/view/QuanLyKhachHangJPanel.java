@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
+    private int rowKH = -1;
     QLKHDAO khdao = new QLKHDAO();
 
     /**
@@ -220,49 +221,57 @@ public class QuanLyKhachHangJPanel extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(btnThem, "Ban co chac muon them khong");
-        if (confirm == JOptionPane.YES_OPTION) {
-            this.khdao.insertKH(this.getKH());
-            fillTable();
-            JOptionPane.showMessageDialog(btnThem, "Them thanh cong");
+        if(rowKH != -1){
+            int confirm = JOptionPane.showConfirmDialog(this, "Ban co chac muon them khong");
+            if (confirm == JOptionPane.YES_OPTION) {
+                this.khdao.insertKH(this.getKH());
+                fillTable();
+                JOptionPane.showMessageDialog(this, "Them thanh cong");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để thêm");
         }
+        
+        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        int sr = tblKhachHang.getSelectedRow();
-        if(sr > 1){
-            int confirm = JOptionPane.showConfirmDialog(btnThem, "Ban co chac muon sua khong");
+        if(rowKH != -1){
+            int confirm = JOptionPane.showConfirmDialog(this, "Ban co chac muon sua khong");
             if (confirm == JOptionPane.YES_OPTION) {
                 this.khdao.updateKH(this.getKH());
                 fillTable();
                 JOptionPane.showMessageDialog(btnThem, "Sua thanh cong");
             }
         } else {
-            JOptionPane.showMessageDialog(btnSua, "Bạn phải chọn một dòng dữ liệu trong bảng để sửa");
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để sửa");
         }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(btnThem, "Ban co chac muon xoa khong");
-        if (confirm == JOptionPane.YES_OPTION) {
-            int row = tblKhachHang.getSelectedRow();
-            int maKH = (int) tblKhachHang.getValueAt(row, 0);
-            this.khdao.deleteKH(maKH);
-            fillTable();
-            JOptionPane.showMessageDialog(btnThem, "Xoa thanh cong");
+        if(rowKH != -1){
+            int confirm = JOptionPane.showConfirmDialog(this, "Ban co chac muon xoa khong");
+            if (confirm == JOptionPane.YES_OPTION) {
+                int maKH = (int) tblKhachHang.getValueAt(rowKH, 0);
+                this.khdao.deleteKH(maKH);
+                fillTable();
+                JOptionPane.showMessageDialog(this, "Xoa thanh cong");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một dòng dữ liệu trong bảng để xóa");
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void tblKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKhachHangMouseClicked
         // TODO add your handling code here:
-        int row = tblKhachHang.getSelectedRow();
-        String maKH = String.valueOf(tblKhachHang.getValueAt(row, 0));
-        String tenKH = String.valueOf(tblKhachHang.getValueAt(row, 1));
-        String sdt = String.valueOf(tblKhachHang.getValueAt(row, 2));
-        String email = String.valueOf(tblKhachHang.getValueAt(row, 3));
-        String diaChi = String.valueOf(tblKhachHang.getValueAt(row, 4));
+        rowKH = tblKhachHang.getSelectedRow();
+        String maKH = String.valueOf(tblKhachHang.getValueAt(rowKH, 0));
+        String tenKH = String.valueOf(tblKhachHang.getValueAt(rowKH, 1));
+        String sdt = String.valueOf(tblKhachHang.getValueAt(rowKH, 2));
+        String email = String.valueOf(tblKhachHang.getValueAt(rowKH, 3));
+        String diaChi = String.valueOf(tblKhachHang.getValueAt(rowKH, 4));
         QLKHENTITY kh = new QLKHENTITY(Integer.parseInt(maKH), tenKH, sdt, email, diaChi);
         this.setKH(kh);
     }//GEN-LAST:event_tblKhachHangMouseClicked

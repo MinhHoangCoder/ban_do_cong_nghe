@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
 
+    private int rowDM = -1;
     private String previousPage;
     private QLDMDAO dmdao = new QLDMDAO();
     /**
@@ -216,7 +217,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
     private void btnTHEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thêm danh mục này không?");
-        if (txtTENDM.getText().trim().isEmpty()){
+        if (rowDM == -1){
             JOptionPane.showMessageDialog(rootPane, "Bạn chưa nhập dữ liệu để thêm!");
         } else {
             if(confirm == JOptionPane.YES_OPTION){
@@ -230,7 +231,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
     private void btnSUAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSUAActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn sửa danh mục này không?");
-        if (txtTENDM.getText().trim().isEmpty()){
+        if (rowDM == -1){
             JOptionPane.showMessageDialog(rootPane, "Bạn chưa nhập dữ liệu để sửa!");
         } else {
             if(confirm == JOptionPane.YES_OPTION){
@@ -244,7 +245,7 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
     private void btnXOAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXOAActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa danh mục này không?");
-        if(txtMADM.getText().trim().isEmpty()){
+        if(rowDM == -1){
             JOptionPane.showMessageDialog(rootPane, "Bạn chưa có đủ dữ liệu để xóa!");
         } else {
             if(confirm == JOptionPane.YES_OPTION){
@@ -260,12 +261,9 @@ public class QuanLyDanhMucJFrame extends javax.swing.JFrame {
 
     private void tblDANHMUCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDANHMUCMouseClicked
         // TODO add your handling code here:
-        int sr = tblDANHMUC.getSelectedRow();
-
-        if (sr >= 0) {
-            txtMADM.setText(tblDANHMUC.getValueAt(sr, 0).toString());
-            txtTENDM.setText(tblDANHMUC.getValueAt(sr, 1).toString());
-        }
+        rowDM = tblDANHMUC.getSelectedRow();
+        txtMADM.setText(tblDANHMUC.getValueAt(rowDM, 0).toString());
+        txtTENDM.setText(tblDANHMUC.getValueAt(rowDM, 1).toString());
     }//GEN-LAST:event_tblDANHMUCMouseClicked
 
     /**

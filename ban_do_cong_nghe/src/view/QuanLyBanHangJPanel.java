@@ -145,6 +145,32 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
         txtTONGTIEN.setText(" ");
         txtGHICHU.setText(" ");
     }
+    
+    public void timSP(int maSP) {
+        DefaultTableModel model = (DefaultTableModel) tblSanPham.getModel();
+        model.setRowCount(0);
+
+        thmap = sanPhamDao.getTH();
+        dmmap = sanPhamDao.getDM();
+        ttmap.put("Active", 1);
+        ttmap.put("Inactive", 2);
+
+        QLSPENTITY sp = sanPhamDao.getOneSP(maSP);
+        if (sp != null) {
+            Object data[] = {
+                sp.getMaSP(),
+                sp.getTenSP(),
+                getKeyFromValue(dmmap, sp.getMaDM()),
+                getKeyFromValue(thmap, sp.getMaTH()),
+                sp.getSoLuongSP(),
+                getKeyFromValue(ttmap, sp.getTrangThaiSP()),
+                sp.getGiaSP()
+            };
+            model.addRow(data);
+        }
+
+        tblSanPham.setModel(model);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -197,7 +223,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtMASP = new javax.swing.JTextField();
-        txtTIM = new javax.swing.JButton();
+        btnTIM = new javax.swing.JButton();
         btnLAMMOI = new javax.swing.JButton();
         btnTHEM = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -444,11 +470,21 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Mã Sản Phẩm");
 
-        txtTIM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Search.png"))); // NOI18N
-        txtTIM.setText("Tìm");
+        btnTIM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Search.png"))); // NOI18N
+        btnTIM.setText("Tìm");
+        btnTIM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTIMActionPerformed(evt);
+            }
+        });
 
         btnLAMMOI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Color wheel.png"))); // NOI18N
         btnLAMMOI.setText("Làm Mới");
+        btnLAMMOI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLAMMOIActionPerformed(evt);
+            }
+        });
 
         btnTHEM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/Add.png"))); // NOI18N
         btnTHEM.setText("Thêm");
@@ -477,7 +513,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtMASP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTIM)
+                        .addComponent(btnTIM)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
@@ -494,7 +530,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtMASP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTIM))
+                    .addComponent(btnTIM))
                 .addGap(0, 16, Short.MAX_VALUE))
         );
 
@@ -782,7 +818,8 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
                             QLHDENTITY hd = new QLHDENTITY(maHD, hTTT, tongTienHD, ghiChu);
                             JOptionPane.showMessageDialog(this, "Thanh toán thành công!");
                             this.fillHoaDonTable();
-                            this.fillCTHDTable(maHD);
+                            DefaultTableModel model = (DefaultTableModel) tblCTHD.getModel();
+                            model.setRowCount(0);
                             refreshTF();
                         }
                     }
@@ -790,6 +827,22 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnTHANHTOANActionPerformed
+
+    private void btnTIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTIMActionPerformed
+        // TODO add your handling code here:
+        int maSP = Integer.parseInt(txtMASP.getText().trim());
+        if(txtMASP.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Bạn chưa điền mã sản phẩm để tìm!");
+        } else {
+            this.timSP(maSP);
+        }
+    }//GEN-LAST:event_btnTIMActionPerformed
+
+    private void btnLAMMOIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLAMMOIActionPerformed
+        // TODO add your handling code here:
+        this.fillSanPhamTable();
+        txtMASP.setText(" ");
+    }//GEN-LAST:event_btnLAMMOIActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -799,6 +852,7 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnTHANHTOAN;
     private javax.swing.JButton btnTHEM;
     private javax.swing.JButton btnTHEMKH;
+    private javax.swing.JButton btnTIM;
     private javax.swing.JComboBox<String> cbHTTT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -847,7 +901,6 @@ public class QuanLyBanHangJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtSOLUONGSP;
     private javax.swing.JTextField txtTENKH;
-    private javax.swing.JButton txtTIM;
     private javax.swing.JTextField txtTONGTIEN;
     // End of variables declaration//GEN-END:variables
 }

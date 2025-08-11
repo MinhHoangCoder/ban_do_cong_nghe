@@ -135,19 +135,23 @@ public class QuanLyHoaDonJPanel extends javax.swing.JPanel {
 
     private void btnCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCTActionPerformed
         // TODO add your handling code here:
-        int maHD = Integer.parseInt(tblQLHD.getValueAt(rowHD, 0).toString());
-        QLHDENTITY hde = hddao.getOneHD(maHD);
-        int trangThai = hde.getTrangThaiHD();
-        hdmap.put("Đang Xử Lý", 0);
-        hdmap.put("Đã Thanh Toán", 1);
-        hdmap.put("Hủy", 2);
+        if(rowHD == -1){
+            JOptionPane.showMessageDialog(this, "Bạn phải chọn một hóa đơn trong bảng để xem chi tiết hóa đơn!");
+        } else {
+            int maHD = Integer.parseInt(tblQLHD.getValueAt(rowHD, 0).toString());
+            QLHDENTITY hde = hddao.getOneHD(maHD);
+            int trangThai = hde.getTrangThaiHD();
+            hdmap.put("Đang Xử Lý", 0);
+            hdmap.put("Đã Thanh Toán", 1);
+            hdmap.put("Hủy", 2);
 
-        if (trangThai == 0 || trangThai == 2) {
-            JOptionPane.showMessageDialog(this, "Hóa đơn chưa thanh toán thành công");
-        } else if (trangThai == 1) {
-            CTHDJFrame cthd = new CTHDJFrame(maHD);
-            cthd.setLocationRelativeTo(null);
-            cthd.setVisible(true);
+            if (trangThai == 0 || trangThai == 2) {
+                JOptionPane.showMessageDialog(this, "Hóa đơn chưa thanh toán thành công");
+            } else if (trangThai == 1) {
+                CTHDJFrame cthd = new CTHDJFrame(maHD);
+                cthd.setLocationRelativeTo(null);
+                cthd.setVisible(true);
+            }
         }
     }//GEN-LAST:event_btnCTActionPerformed
 
