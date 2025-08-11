@@ -40,8 +40,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         fillCB();
         fillTable();
         tblQLNV.getColumnModel().getColumn(6).setCellRenderer(new PasswordRenderer());
-        int maQ = qmap.get(tblQLNV.getValueAt(0, 7).toString());
-        System.out.println(maQ);
     }
     
     public void fillCB(){
@@ -59,7 +57,6 @@ public class QuanLyNhanVienJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblQLNV.getModel();
         model.setRowCount(0);
         for (QLNVENTITY nv : nvdao.getAllNV()) {
-            System.out.println(nv.getQuyen());
             Object data[] = {
                 nv.getMaNV(),
                 nv.getTenNV(),
